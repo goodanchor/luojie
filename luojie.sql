@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015-02-08 18:05:39
+-- 生成日期: 2015-02-09 00:07:47
 -- 服务器版本: 5.5.41-0ubuntu0.14.04.1
 -- PHP 版本: 5.5.9-1ubuntu4.5
 
@@ -30,9 +30,9 @@ CREATE TABLE IF NOT EXISTS `notice` (
   `noticeid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '公告id',
   `title` varchar(20) NOT NULL COMMENT '标题',
   `content` varchar(200) NOT NULL COMMENT '内容',
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '发布时间',
+  `time` int(11) unsigned NOT NULL COMMENT '发布时间',
   `top` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '置顶？1：置顶；0：否',
-  `show` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '显示？1：显示；0：否',
+  `ifshow` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '显示？1：显示；0：否',
   `userid` int(10) NOT NULL COMMENT '发布者id',
   PRIMARY KEY (`noticeid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公告表' AUTO_INCREMENT=1 ;
@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `passage` (
   `passageid` int(10) NOT NULL AUTO_INCREMENT COMMENT '文章id',
   `title` varchar(20) NOT NULL COMMENT '文章标题',
   `content` text NOT NULL COMMENT '文章内容',
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '发布时间',
-  `show` tinyint(1) NOT NULL DEFAULT '1' COMMENT '显示？1：显示；2：否',
-  `userid` int(10) NOT NULL COMMENT '作者',
+  `time` int(11) unsigned NOT NULL COMMENT '发布时间',
+  `ifshow` tinyint(1) NOT NULL DEFAULT '1' COMMENT '显示？1：显示；0：否',
+  `userid` int(10) unsigned NOT NULL COMMENT '作者',
   PRIMARY KEY (`passageid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章表' AUTO_INCREMENT=1 ;
 
@@ -63,11 +63,11 @@ CREATE TABLE IF NOT EXISTS `upload` (
   `fileid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'fileid',
   `filename` varchar(20) NOT NULL COMMENT '文件名',
   `fileaddress` varchar(40) NOT NULL COMMENT '文件地址',
-  `uploadtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '上传时间',
+  `uploadtime` int(11) unsigned NOT NULL COMMENT '上传时间',
   `dowloadtimes` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '下载次数',
   `userid` int(10) unsigned NOT NULL COMMENT '上传者id',
   `description` varchar(140) NOT NULL COMMENT '文件描述',
-  `avilible` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否可下载',
+  `avilible` tinyint(1) NOT NULL DEFAULT '1' COMMENT '可下载？1：可；0：否',
   PRIMARY KEY (`fileid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='上传表' AUTO_INCREMENT=1 ;
 
