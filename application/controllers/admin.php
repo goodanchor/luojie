@@ -48,7 +48,7 @@ class Admin extends CI_Controller
         if ($post['username'] == '' OR $post['password'] == '')
         {
             $res['msg'] = '请输入完整的用户名或密码';
-            $res['status'] = '0';
+            $res['status'] = 0;
         }    
         else {
             
