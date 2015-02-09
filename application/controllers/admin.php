@@ -32,7 +32,7 @@ class Admin extends CI_Controller
             }
         }
         else {
-            $this->load->view('./admin/upload');
+            $this->load->view('./admin/login');
                 // header('LOCATION : login');
         }
             
@@ -72,8 +72,7 @@ class Admin extends CI_Controller
         $data = array('userid'=>'','name'=>'','ip'=>'','power'=>'');
 
         $this->session->unset_userdata($data);
-        
-        header('LOCATION : index');
+        header('LOCATION:index');
     }
 
 
