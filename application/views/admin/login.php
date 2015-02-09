@@ -21,14 +21,14 @@
 <body>
 	<form>
 	  	<div class="form-group">
-	    	<label for="username">用户名</label>
-	    	<input type="email" class="form-control" id="username" placeholder="输入管理员或老师用户名">
+	    	<label for="exampleInputEmail1">Email address</label>
+	    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
 	  	</div>
 	  	<div class="form-group">
-	    	<label for="password">密码</label>
-	    	<input type="password" class="form-control" id="password" placeholder="输入密码">
+	    	<label for="exampleInputPassword1">Password</label>
+	    	<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 	 	</div>
-	  	<button type="button" class="btn btn-default">登录</button>
+	  	<button type="submit" class="btn btn-default">Submit</button>
 	</form>
 </body>
 </html>
