@@ -28,8 +28,8 @@
 	          	<ul class="nav navbar-nav">
 	            	<li><a href="./index.php/admin/index">概况</a></li>
 	            	<li><a href="./index.php/admin/upload">文件管理</a></li>
-	            	<li class="active"><a href="">文章管理</a></li>
-	            	<li><a href="">公告管理</a></li>
+	            	<li><a href="">文章管理</a></li>
+	            	<li class="active"><a href="">公告管理</a></li>
 	            	<li><a href="">前台首页</a></li>
 	          	</ul>
 	        </div><!--/.nav-collapse -->
@@ -38,8 +38,8 @@
 
     <div class="container">
 		<div class="starter-template">
-        	<h2>文章列表</h2>
-        	<a class="btn btn-success" style="margin:20px 0;" href="">发布新文章</a>
+        	<h2>公告列表</h2>
+        	<a class="btn btn-success" style="margin:20px 0;" href="">发布新公告</a>
         	<table class="table table-bordered">
 		    <thead>
 		        <tr>

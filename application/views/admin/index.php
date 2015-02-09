@@ -7,34 +7,30 @@
 	<meta charset="utf-8" />
 	<title>管理后台</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<base href = "<?php echo base_url();?>"/> 
-	<link href="./css/login-admin.css" rel="stylesheet" type="text/css"/>
+	<base href = "<?php echo base_url();?>"/>
+	<script type="text/javascript"> window.URL = "<?php echo base_url();?>"; </script>
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-	<script src="./js/jquery.min.js"></script>
+	<script src="./public/js/jquery-min.js"></script>
 
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="./js/bootstrap.min.js"></script>
+	<script src="./public/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="" />
 </head>
-<body>
+<body style="padding-top:50px;">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
      	<div class="container">
 	        <div class="navbar-header">
-	          	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            	<span class="sr-only">Toggle navigation</span>
-	            	<span class="icon-bar"></span>
-	            	<span class="icon-bar"></span>
-	            	<span class="icon-bar"></span>
-	          	</button>
-	          	<a class="navbar-brand" href="#">Project name</a>
+	          	<a class="navbar-brand" href="./index.php/admin/index">课程网站后台</a>
 	        </div>
 	        <div id="navbar" class="collapse navbar-collapse">
 	          	<ul class="nav navbar-nav">
-	            	<li class="active"><a href="#">Home</a></li>
-	            	<li><a href="#about">About</a></li>
-	            	<li><a href="#contact">Contact</a></li>
+	            	<li class="active"><a href="./index.php/admin/index">概况</a></li>
+	            	<li><a href="./index.php/admin/upload">文件管理</a></li>
+	            	<li><a href="">文章管理</a></li>
+	            	<li><a href="">公告管理</a></li>
+	            	<li><a href="">前台首页</a></li>
 	          	</ul>
 	        </div><!--/.nav-collapse -->
       	</div>
@@ -42,8 +38,30 @@
 
     <div class="container">
 		<div class="starter-template">
-        	<h1>Bootstrap starter template</h1>
-        	<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        	<h2>网站概况</h2>
+        	<p class="lead">总访问数: 37219</p>
+        	<p class="lead">今日访问数(PV): 23</p>
+        	<p class="lead">文件下载排行:</p>
+        	<table class="table table-bordered">
+		    <thead>
+		        <tr>
+		          	<th>#</th>
+		          	<th>文件名</th>
+		          	<th>总下载量</th>
+		          	<th>上传日期</th>
+		          	<th>日均下载量</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr>
+		          	<th scope="row">1</th>
+		          	<td>课件.doc</td>
+		          	<td>1220</td>
+		          	<td>2015-01-01 12:45:22</td>
+		          	<td>23</td>
+		        </tr>
+		    </tbody>
+		    </table>
       	</div>
     </div><!-- /.container -->
 </body>
