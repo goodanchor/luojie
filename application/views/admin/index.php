@@ -40,32 +40,30 @@
     </nav>
 
     <div class="container">
-		<div class="starter-template">
-        	<h2>网站概况</h2>
-        	<p class="lead">总访问数: 37219</p>
-        	<p class="lead">今日访问数(PV): 23</p>
-        	<p class="lead">文件下载排行:</p>
-        	<table class="table table-bordered">
-		    <thead>
-		        <tr>
-		          	<th>#</th>
-		          	<th>文件名</th>
-		          	<th>总下载量</th>
-		          	<th>上传日期</th>
-		          	<th>日均下载量</th>
-		        </tr>
-		    </thead>
-		    <tbody>
-		        <tr>
-		          	<th scope="row">1</th>
-		          	<td>课件.doc</td>
-		          	<td>1220</td>
-		          	<td>2015-01-01 12:45:22</td>
-		          	<td>23</td>
-		        </tr>
-		    </tbody>
-		    </table>
-      	</div>
+    	<h2>网站概况</h2>
+    	<p class="lead">总访问数: 37219</p>
+    	<p class="lead">今日访问数(PV): 23</p>
+    	<p class="lead">文件下载排行:</p>
+    	<table class="table table-bordered">
+	    <thead>
+	        <tr>
+	          	<th>#</th>
+	          	<th>文件名</th>
+	          	<th>总下载量</th>
+	          	<th>上传日期</th>
+	          	<th>日均下载量</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	          	<th scope="row">1</th>
+	          	<td>课件.doc</td>
+	          	<td>1220</td>
+	          	<td>2015-01-01 12:45:22</td>
+	          	<td>23</td>
+	        </tr>
+	    </tbody>
+	    </table>
     </div><!-- /.container -->
 </body>
 </html>

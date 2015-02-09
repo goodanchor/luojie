@@ -40,32 +40,30 @@
     </nav>
 
     <div class="container">
-		<div class="starter-template">
-        	<h2>文章列表</h2>
-        	<a class="btn btn-success" style="margin:20px 0;" href="">发布新文章</a>
-        	<table class="table table-bordered">
-		    <thead>
-		        <tr>
-		          	<th>#</th>
-		          	<th>标题</th>
-		          	<th>发布者</th>
-		          	<th>发布日期</th>
-		          	<th>编辑</th>
-		          	<th>删除</th>
-		        </tr>
-		    </thead>
-		    <tbody>
-		        <tr>
-		          	<th scope="row">1</th>
-		          	<td>关于期末考试的安排</td>
-		          	<td>罗杰</td>
-		          	<td>2015-01-01 12:45:22</td>
-		          	<td><a href="">编辑</a></td>
-		          	<td><a href="">删除</a></td>
-		        </tr>
-		    </tbody>
-		    </table>
-      	</div>
+    	<h2>文章列表</h2>
+    	<a class="btn btn-success" style="margin:20px 0;" href="">发布新文章</a>
+    	<table class="table table-bordered">
+	    <thead>
+	        <tr>
+	          	<th>#</th>
+	          	<th>标题</th>
+	          	<th>发布者</th>
+	          	<th>发布日期</th>
+	          	<th>编辑</th>
+	          	<th>删除</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	          	<th scope="row">1</th>
+	          	<td>关于期末考试的安排</td>
+	          	<td>罗杰</td>
+	          	<td>2015-01-01 12:45:22</td>
+	          	<td><a href="">编辑</a></td>
+	          	<td><a href="">删除</a></td>
+	        </tr>
+	    </tbody>
+	    </table>
     </div><!-- /.container -->
 </body>
 </html>

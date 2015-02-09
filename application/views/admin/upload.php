@@ -42,30 +42,28 @@
     </nav>
 
     <div class="container">
-		<div class="starter-template">
-        	<h2>文件列表</h2>
-        	<div style="margin:20px 0;" id="upload">上传文件</div>
-        	<table class="table table-bordered">
-		    <thead>
-		        <tr>
-		          	<th>#</th>
-		          	<th>文件名</th>
-		          	<th>发布者</th>
-		          	<th>发布日期</th>
-		          	<th>删除</th>
-		        </tr>
-		    </thead>
-		    <tbody>
-		        <tr>
-		          	<th scope="row">1</th>
-		          	<td>期末答案你要不要.doc</td>
-		          	<td>罗杰</td>
-		          	<td>2015-01-01 12:45:22</td>
-		          	<td>删除</td>
-		        </tr>
-		    </tbody>
-		    </table>
-      	</div>
+    	<h2>文件列表</h2>
+    	<div style="margin:20px 0;" id="upload">上传文件</div>
+    	<table class="table table-bordered">
+	    <thead>
+	        <tr>
+	          	<th>#</th>
+	          	<th>文件名</th>
+	          	<th>发布者</th>
+	          	<th>发布日期</th>
+	          	<th>删除</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	          	<th scope="row">1</th>
+	          	<td>期末答案你要不要.doc</td>
+	          	<td>罗杰</td>
+	          	<td>2015-01-01 12:45:22</td>
+	          	<td>删除</td>
+	        </tr>
+	    </tbody>
+	    </table>
     </div><!-- /.container -->
 </body>
 </html>
