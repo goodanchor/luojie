@@ -54,7 +54,8 @@ class Admin extends CI_Controller
             
             $result = $this->admin_model->do_login($post);
             if ($result) {
-                header('LOCATION : index');
+                $res['msg'] = 'OK';
+                $res['status'] = 1;
             }
             else {
                 $res['msg'] = '请输入正确的用户名密码';
@@ -72,6 +73,7 @@ class Admin extends CI_Controller
         $data = array('userid'=>'','name'=>'','ip'=>'','power'=>'');
 
         $this->session->unset_userdata($data);
+
         header('LOCATION:index');
     }
 

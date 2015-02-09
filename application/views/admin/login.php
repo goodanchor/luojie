@@ -31,13 +31,13 @@
 		<form style="width:300px; margin:100px auto;">
 		  	<div class="form-group">
 		    	<label for="username">用户名</label>
-		    	<input type="email" class="form-control" id="username" placeholder="用户名">
+		    	<input type="text" class="form-control" id="username" placeholder="用户名">
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="password">密码</label>
 		    	<input type="password" class="form-control" id="password" placeholder="密码">
 		 	</div>
-		  	<button type="button" class="btn btn-default" id="login">登录</button>
+		  	<button type="submit" class="btn btn-default" id="login">登录</button>
 		</form>
 	</div>
 </body>
