@@ -47,20 +47,20 @@ class Admin extends CI_Controller
         if ($post['username'] == '' OR $post['password'] == '')
         {
             $res['msg'] = '请输入完整的用户名或密码';
-            $res['status'] = '0'
-        }
-    
+            $res['status'] = '0';
+        }    
         else {
             
-            $res = $this->admin_model->do_login($post);
-            if ($res) {
+            $result = $this->admin_model->do_login($post);
+            if ($result) {
                 header('LOCATION : index');
             }
             else {
-                $data['error'] ='用户名或密码错误';
-                $this->load->view('login'，$data);
+                $res['msg'] = '请输入正确的用户名密码';
+                $res['status'] = 0;
             }
         }
+        echo json_encode($res);
     }
 
 
