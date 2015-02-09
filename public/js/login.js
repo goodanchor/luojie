@@ -17,13 +17,11 @@ $(document).ready(function(){
 			success:function(res){
 				if(res.status){
 					alert("登录成功");
+					window.location.href = URL + "index.php/admin/index",
 				}else{
 					alert(res.msg);
 					$("#password").val("");
 				}
-			},
-			error:function(res){
-				alert("登录失败,请检查网络");
 			}
 		});
 	});
