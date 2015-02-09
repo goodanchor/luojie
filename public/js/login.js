@@ -16,8 +16,7 @@ $(document).ready(function(){
 			dataType:"json",
 			success:function(res){
 				if(res.status){
-					alert("登录成功");
-					window.location.href = URL + "index.php/admin/index",
+					window.location.href = URL + "index.php/admin/index";
 				}else{
 					alert(res.msg);
 					$("#password").val("");

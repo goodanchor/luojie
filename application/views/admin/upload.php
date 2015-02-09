@@ -44,7 +44,7 @@
     <div class="container">
 		<div class="starter-template">
         	<h2>文件列表</h2>
-        	<div class="btn btn-success" style="margin:20px 0;" id="upload">上传文件</div>
+        	<div style="margin:20px 0;" id="upload">上传文件</div>
         	<table class="table table-bordered">
 		    <thead>
 		        <tr>

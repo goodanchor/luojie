@@ -74,7 +74,7 @@ class Admin extends CI_Controller
 
         $this->session->unset_userdata($data);
         
-        header('LOCATION : index');
+        header('LOCATION:index');
     }
 
 
