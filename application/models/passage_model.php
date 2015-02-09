@@ -41,4 +41,32 @@ class Passage_Model extends CI_Model
         return FALSE;
     }
 
+    function fetch_all()
+    {
+        $this->db->select('passage.passageid,passage.title,passage.time,passage.userid,user.name');
+        $this->db->from('passage');
+        $this->db->join('user','user.userid=passage.userid');
+
+        $query = $this->db->get();
+
+        if($rows = $query->result_array()){
+            return $rows;
+        }
+        return FALSE;
+    }
+
+    function fetch_one($passageid)
+    {
+        $this->db->select('passage.passageid,passage.title,passage.content,passage.time,passage.userid,user.name');
+        $this->db->from('passage');
+        $this->db->where('passageid',$passageid);
+        $this->db->join('user','user.id=passage.userid');
+        $query = $this->db->get();
+
+        if($row = $query->row_array()){
+            return $row;
+        }
+        return FALSE;
+    }
+
 }
