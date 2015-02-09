@@ -36,9 +36,20 @@ class Admin_Model extends CI_Model
     }
 
 
-    function upload($data)
+    function upload($data,$post)
     {
-        $arr['']$data['orig_name']
+        $arr['userid'] = $this->session->userdata('userid');
+        if ( ! $arr['userid'])
+            return FALSE;
+        $arr['filename'] = $data['orig_name'];
+        $arr['fileaddress'] = $data['file_name'];
+        $arr['uploadtime'] = time();
+        $arr['description'] = $post['description'];
 
+        if( $this->db->insert('upload',$arr) ) {
+            return $this->db->insert_id();
+        }
+        else
+            return FALSE;
     }
 }

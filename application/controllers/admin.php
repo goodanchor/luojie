@@ -37,30 +37,28 @@ class Admin extends CI_Controller
             
     }
 
+    
+
         /*管理员和教师登录*/
     function login()
     {
-            /*设置验证规则
-             *3 parms
-             *filed 表单域名
-             *name 作为参数返回错误信息
-             *rules 验证规则
-             */
-        $this->form_validation->set_rules('username','用户名','trim|required|min_length[5]|max_length[16]|xss_clean');
-        $this->form_validation->set_rules('password','密码'，'trim|required|min_length[6]|max_length[16]|xss_clean');
+        $post = $this->input->post();
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('');
+        if ($post['username'] == '' OR $post['password'] == '')
+        {
+            $res['msg'] = '请输入完整的用户名或密码';
+            $res['status'] = '0'
         }
+    
         else {
-            $post = $this->input->post();
+            
             $res = $this->admin_model->do_login($post);
             if ($res) {
                 header('LOCATION : index');
             }
             else {
-                $this->form_validation->set_message('error','用户名或密码错误');
-                $this->load->view('login');
+                $data['error'] ='用户名或密码错误';
+                $this->load->view('login'，$data);
             }
         }
     }
@@ -77,25 +75,41 @@ class Admin extends CI_Controller
         header('LOCATION : login');
     }
 
+    
+        /*文件上传*/
     function upload_file()
     {
-        
-        $config['upload_path'] = './uploads/';
+            /*设置上传路径*/
+        $path = base_url().'/public/uploads';
+
+        if( ! file_exists($path) ) {
+            mkdir($path,0777);
+        }
+            /*上传配置*/
+        $config['upload_path'] = $path.'/';
         $config['max_size'] = '1000';
         $config['encrypt_name'] = 'TRUE';
 
         $this->load->library('upload',$config);
-
+            /*上传，*/
         if ( ! $this->upload->do_upload()) {
             $error = array('error'=>$this->upload->display_errors());
 
             $this->load->view('',$error);
         }
         else {
+                /*写入数据库*/
+            $post = $this->input->post();
             $data = $this->upload->data();
-            $res = $this->admin_model->upload($data);
+            $res = $this->admin_model->upload($data,$post);
+            if ($res) {
+                $this->load->view('success');
+            }
+            else {
+                $filed['error'] = 'failed to upload';
+                $this->load->view('',$filed);
+            }            
         }
     }
-    
-    
+        
 }
