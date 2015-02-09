@@ -8,9 +8,10 @@
 	<title>管理后台</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<base href = "<?php echo base_url();?>"/>
-	<script type="text/javascript"> window.URL = "<?php echo base_url();?>";window.UMEDITOR_HOME_URL = ".<?php echo base_url();?>public/ueditor/"; </script>
+	<script type="text/javascript"> window.URL = "<?php echo base_url();?>";window.UMEDITOR_HOME_URL = "<?php echo base_url();?>public/ueditor/"; </script>
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+	<link href="./public/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="./public/js/jquery-min.js"></script>
 
@@ -18,8 +19,8 @@
 	<script src="./public/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="" />
 </head>
-<body style="padding-top:50px;">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+<body style="background:url(./public/images/bg.jpg)">
+	<nav class="navbar navbar-inverse">
      	<div class="container">
 	        <div class="navbar-header">
 	          	<a class="navbar-brand" href="./index.php/admin/index">课程网站后台</a>
@@ -46,9 +47,7 @@
 	    	<label for="title">标题</label>
 	    	<input type="text" class="form-control" id="title" placeholder="文章标题">
 	  	</div>
-	  	<script id="container" name="content" type="text/plain">
-	        文章内容
-	    </script>
+	  	<script id="container" name="content" type="text/plain"  style="width:100%;height:1000px;"></script>
 	     <!-- 配置文件 -->
 	    <script type="text/javascript" src="./public/ueditor/umeditor.config.js"></script>
 	    <!-- 编辑器源码文件 -->

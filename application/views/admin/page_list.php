@@ -18,8 +18,8 @@
 	<script src="./public/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="" />
 </head>
-<body style="padding-top:50px;">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+<body style="background:url(./public/images/bg.jpg)">
+	<nav class="navbar navbar-inverse">
      	<div class="container">
 	        <div class="navbar-header">
 	          	<a class="navbar-brand" href="./index.php/admin/index">课程网站后台</a>
@@ -42,7 +42,7 @@
     <div class="container">
     	<h2>文章列表</h2>
     	<a class="btn btn-success" style="margin:20px 0;" href="">发布新文章</a>
-    	<table class="table table-bordered">
+    	<table class="table table-bordered" style="background:#fff;">
 	    <thead>
 	        <tr>
 	          	<th>#</th>

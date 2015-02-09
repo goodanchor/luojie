@@ -19,8 +19,8 @@
 	<script src="./public/js/login.js"></script>
 	<link rel="shortcut icon" href="" />
 </head>
-<body>
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<body style="background:url(./public/images/bg.jpg)">
+	<div class="navbar navbar-inverse" role="navigation">
 	  <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand">管理后台--登陆</a>
