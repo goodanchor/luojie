@@ -11,14 +11,16 @@
 	<script type="text/javascript"> window.URL = "<?php echo base_url();?>"; </script>
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/css/uploadify.css">
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="./public/js/jquery-min.js"></script>
 	<script src="./public/js/upload.js"></script>
+	<script src="./public/js/jquery.uploadify.min.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="./public/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="" />
 </head>
-<body style="padding-top:50px;">
+<body style="padding-top:50px;background:url(./public/images/bg.jpg)">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
      	<div class="container">
 	        <div class="navbar-header">
@@ -39,7 +41,7 @@
     <div class="container">
 		<div class="starter-template">
         	<h2>文件列表</h2>
-        	<a class="btn btn-success" style="margin:20px 0;" href="">上传文件</a>
+        	<div class="btn btn-success" style="margin:20px 0;" id="upload">上传文件</div>
         	<table class="table table-bordered">
 		    <thead>
 		        <tr>
