@@ -22,17 +22,18 @@ class Admin extends CI_Controller
             $data['session'] = $session;
             switch($session['power']){
                 case 1 :
-                    $this->load->view('admin_index',$data);
+                    $this->load->view('./admin/index',$data);
                     break;
                 case 0 :
-                    $this->load->view('teacher',$data);
+                    $this->load->view('./admin/index',$data);
                     break;
                 default:
                     $this->load->view('Error');
             }
         }
         else {
-            header('LOCATION : login');
+            $this->load->view('./admin/login');
+                // header('LOCATION : login');
         }
             
     }
@@ -72,7 +73,7 @@ class Admin extends CI_Controller
 
         $this->session->unset_userdata($data);
         
-        header('LOCATION : login');
+        header('LOCATION : index');
     }
 
     
@@ -95,7 +96,7 @@ class Admin extends CI_Controller
         if ( ! $this->upload->do_upload()) {
             $error = array('error'=>$this->upload->display_errors());
 
-            $this->load->view('',$error);
+            $this->load->view('./admin/upload',$error);
         }
         else {
                 /*写入数据库*/
@@ -107,7 +108,7 @@ class Admin extends CI_Controller
             }
             else {
                 $filed['error'] = 'failed to upload';
-                $this->load->view('',$filed);
+                $this->load->view('./admin/upload',$filed);
             }            
         }
     }
