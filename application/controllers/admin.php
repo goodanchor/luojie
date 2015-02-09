@@ -76,6 +76,33 @@ class Admin extends CI_Controller
         header('LOCATION : index');
     }
 
+
+   function upload()
+    {
+        $session = $this->session->all_userdata();
+        if(!isset($session['userid'])){
+            $res['status'] = 0;
+            $res['msg'] = '您无权进行此操作';
+        }
+        else
+        {
+            $this->load->view('./admin/upload');
+        }
+    }
+
+    function passli()
+    {
+        $session = $this->session->all_userdata();
+        if(!isset($session['userid'])){
+            $res['status'] = 0;
+            $res['msg'] = '您无权进行此操作';
+        }
+        else
+        {
+            $this->load->view('./admin/page_list');
+        }
+    }
+
     
         /*文件上传*/
     function upload_file()
