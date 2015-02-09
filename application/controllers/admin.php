@@ -73,7 +73,7 @@ class Admin extends CI_Controller
         $data = array('userid'=>'','name'=>'','ip'=>'','power'=>'');
 
         $this->session->unset_userdata($data);
-        
+
         header('LOCATION:index');
     }
 
