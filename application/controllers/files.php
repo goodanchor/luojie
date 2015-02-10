@@ -46,12 +46,16 @@ class Files extends CI_Controller
         }
         return ;
     }
-        /*
+  
     function delete()
     {
+        $session = $this->session->all_userdata();
         $post = $this->input->post();
-        if
+        if(!isset($session['userid'])){
+            $res['msg'] = '您无权进行该操作';
+            $res['status'] = 0 ;
+        }
     }
-        */
+ 
 
 }

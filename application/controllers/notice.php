@@ -8,6 +8,24 @@ class Notice extends CI_Controller
         $this->load->model('notice_model');
     }
 
+    function edit($pid=0){
+        $session = $this->session->all_userdata();
+        if(!isset($session['userid'])){
+            $res['msg'] = '您无权进行该操作';
+            $res['status'] = 0 ;
+        }
+        else {
+            if($pid==0)
+                $this->load->view('./admin/edit_news');
+            else{
+                $row = $this->notice_model->fetch_one($pid);
+                    // print_r($row);
+                $data['row'] = $row;
+                $this->load->view('./admin/edit_news',$data);
+            }
+        }
+    }
+
     function add_notice()
     {
         $session = $this->session->all_userdata();
