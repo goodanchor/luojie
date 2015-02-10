@@ -74,12 +74,35 @@
 	          				<td>$title</td>
 				          	<td>$userid</td>
 				          	<td>".date('Y-m-d H:i:s',$time)."</td>
-				          	<td><a href=''>删除</a></td>
+				          	<td class='del' name='$fid'><a href='javascript:void(0)'>删除</a></td>
 	                </tr>";
 	            }
 	        ?>
 	    </tbody>
 	    </table>
     </div><!-- /.container -->
+    <script type="text/javascript">
+    	$(document).ready(function(){
+			$(".del").click(function(){
+				var _this = this;
+				var fid = $(this).attr("name");
+				$.ajax({
+					type:"post",
+					url:URL + "index.php/files/del",
+					data:{
+						fileid : fid
+					},
+					dataType:"json",
+					success:function(res){
+						if(res.status){
+							$(_this).parent().remove();
+						}else{
+							alert("删除失败");
+						}
+					}
+				})
+			});
+		});
+    </script>
 </body>
 </html>
