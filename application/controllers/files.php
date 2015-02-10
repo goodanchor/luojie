@@ -30,8 +30,12 @@ class Files extends CI_Controller
             $fileTypes = array();
             $fileParts = pathinfo($_FILES['Filedata']['name']);
 
+            print_r($_FILES);
+            print_r($_FILES["Filedata"]["error"]);
             
-            move_uploaded_file($tempFile,$targetFile);
+            if(!move_uploaded_file($tempFile,$targetFile))
+                return 0;
+         
                 
             if ($this->files_model->upload($post,$_FILES['Filedata']['name'])){
                 echo '1';
@@ -57,17 +61,16 @@ class Files extends CI_Controller
         }
         else{
             $row = $this->files_model->fetch_one($post['fileid']);
-            $res = $this->files_model->delete($row);
-            if($res){
+            $result = $this->files_model->delete($row);
+           if($result){
                 $res['msg'] = 'delete successfully';
                 $res['status'] = 1;    
             }
             else {
-
                 $res['msg'] = 'delete failed';
                 $res['status'] = 0 ;   
             }
-
+        
         }
         echo json_encode($res);
     }
