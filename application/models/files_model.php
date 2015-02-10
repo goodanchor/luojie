@@ -7,6 +7,7 @@ class Files_Model extends CI_Model
         parent::__construct();
         $this->load->database();
         $this->load->library('session');
+        $this->load->helper('file');
     }
 
     function upload($post,$filename)
@@ -38,9 +39,26 @@ class Files_Model extends CI_Model
         return FALSE;
     }
 
-    function delete($post)
+    function fetch_one($fileid)
     {
-        if ($this->db->delete('upload',$post))
+        $this->db->select('upload.*,user.name');
+        $this->db->from('upload');
+        $this->db->where('fileid',$fileid);
+        $this->db->join('user','user.userid=upload.userid');
+        
+        $query = $this->db->get();
+
+        if($row = $query->row_array()){
+            return $row;
+        }
+        return FALSE;
+    }
+
+    function delete($row)
+    {
+        $path = './public/upload/'.$row['filename'];
+        delete_files($path);
+        if ($this->db->delete('upload',$row['fileid']))
         {
             return TRUE;
         }

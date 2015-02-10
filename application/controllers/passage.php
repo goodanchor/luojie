@@ -97,4 +97,47 @@ class Passage extends CI_Controller
         }
         echo json_encode($res);
     }
+
+    function imageup()
+    {
+        include 'Uploader.class.php';
+
+        $config = array(
+            "savePath" => "upload/" ,             //存储文件夹
+            "maxSize" => 1000 ,                   //允许的文件最大尺寸，单位KB
+            "allowFiles" => array( ".gif" , ".png" , ".jpg" , ".jpeg" , ".bmp" )  //允许的文件格式
+                        );
+        $Path = "./public/uploads/";
+
+            //背景保存在临时目录中
+        $config[ "savePath" ] = $Path;
+        $up = new Uploader( "upfile" , $config );
+        $type = $_REQUEST['type'];
+        $callback=$_GET['callback'];
+
+        $info = $up->getFileInfo();
+            /**
+             * 返回数据
+             */
+        if($callback) {
+            echo '<script>'.$callback.'('.json_encode($info).')</script>';
+        } else {
+            echo json_encode($info);
+        }  //背景保存在临时目录中
+        $config[ "savePath" ] = $Path;
+        $up = new Uploader( "upfile" , $config );
+        $type = $_REQUEST['type'];
+        $callback=$_GET['callback'];
+
+        $info = $up->getFileInfo();
+            /**
+             * 返回数据
+             */
+        if($callback) {
+            echo '<script>'.$callback.'('.json_encode($info).')</script>';
+        } else {
+            echo json_encode($info);
+        }
+
+    }
 }
