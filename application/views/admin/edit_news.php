@@ -14,7 +14,7 @@
 	<link href="./public/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="./public/js/jquery-min.js"></script>
-	<script src="./public/js/edit_page.js"></script>
+	<script src="./public/js/edit_news.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="./public/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="" />

@@ -66,7 +66,7 @@
 	          				<td>$title</td>
 				          	<td>$userid</td>
 				          	<td>".date('Y-m-d H:i:s',$time)."</td>
-				          	<td><a href='./index.php/passage/edit?pid=$pid'>编辑</a></td>
+				          	<td><a href='./index.php/passage/edit/$pid'>编辑</a></td>
 				          	<td><a href=''>删除</a></td>
 	                </tr>";
 	            }

@@ -9,9 +9,9 @@ $(document).ready(function(){
         	return;
         }
         if(pid){
-        	var url = URL + "index.php/passage/update_passage";
+        	var url = URL + "index.php/notice/update_notice";
         }else{
-        	var url = URL + "index.php/passage/add_passage";
+        	var url = URL + "index.php/notice/add_notice";
         }
        	$.ajax({
 			type:"post",
