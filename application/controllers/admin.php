@@ -22,16 +22,9 @@ class Admin extends CI_Controller
         $session = $this->session->all_userdata();
         if (isset($session['userid'])) {
             $data['session'] = $session;
-            switch($session['power']){
-                case 1 :
-                    $this->load->view('./admin/index',$data);
-                    break;
-                case 0 :
-                    $this->load->view('./admin/index',$data);
-                    break;
-                default:
-                    $this->load->view('Error');
-            }
+            $data['$rows'] = $this->admin_model->fetch_all();
+            $this->load->view('./admin/index',$data);
+              
         }
         else {
             $this->load->view('./admin/login');

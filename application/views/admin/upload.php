@@ -69,10 +69,11 @@
 	                $time = $file["uploadtime"];
 	                $show = $file["avilible"];
 	                $userid = $file["userid"];
+	                $name = $file['name'];
 	                echo "<tr>
 	                   		<th scope='row'>$fid</th>
 	          				<td>$title</td>
-				          	<td>$userid</td>
+				          	<td>$name</td>
 				          	<td>".date('Y-m-d H:i:s',$time)."</td>
 				          	<td class='del' name='$fid'><a href='javascript:void(0)'>删除</a></td>
 	                </tr>";

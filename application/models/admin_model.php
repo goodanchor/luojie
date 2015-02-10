@@ -52,4 +52,18 @@ class Admin_Model extends CI_Model
         else
             return FALSE;
     }
+
+     function fetch_all()
+    {
+        /*$this->db->select('upload.*,user.name');
+        $this->db->from('upload');
+        $this->db->join('user','user.userid=upload.userid');*/
+        $this->db->order_by('dowloadtimes','desc');
+        $query = $this->db->get('upload');
+
+        if($rows = $query->result_array()){
+            return $rows;
+        }
+        return FALSE;
+    }
 }
