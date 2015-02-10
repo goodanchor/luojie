@@ -1,5 +1,11 @@
+var post_status = "ready";
 $(document).ready(function(){
 	$("#post_notice").click(function(){
+		if(post_status == "posting"){
+			alert("发布中,请稍等");
+			return;
+		}
+		post_status = "posting";
 		var path = window.location.pathname.split("/");
 		var nid = !isNaN(Number(path[5]))?path[5]:false;//获取文章id
         var content = UM.getEditor('container').getContent();
@@ -29,6 +35,10 @@ $(document).ready(function(){
 				}else{
 					alert(res.msg);
 				}
+				post_status = "ready";
+			},
+			error:function(){
+				post_status = "ready";
 			}
 		});
 	});

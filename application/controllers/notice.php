@@ -34,7 +34,7 @@ class Notice extends CI_Controller
             $res['msg'] = '您无权进行该操作';
             $res['status'] = 0 ;
         }
-        else if(!$post['title'] OR strlen($post['title'])>20){
+        else if(!$post['title'] OR strlen($post['title'])>100){
             $res['msg'] = '请输入的公告标题或标题过长';
             $res['status'] = 0;
         }
@@ -80,7 +80,7 @@ class Notice extends CI_Controller
             $res['msg'] = '您无权进行该操作';
             $res['status'] = 0 ;
         }
-        else if(!$post['title'] OR strlen($post['title'])>20){
+        else if(!$post['title'] OR strlen($post['title'])>100){
             $res['msg'] = '请输入公告标题或标题过长';
             $res['status'] = 0;
         }
