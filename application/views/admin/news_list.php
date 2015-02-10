@@ -55,7 +55,7 @@
 	    </thead>
 	    <tbody>
 	        <?php
-	            foreach ($row as $news) {
+	            foreach ($rows as $news) {
 	                $nid = $news["noticeid"];
 	                $title = $news["title"];
 	                $time = $news["time"];
@@ -65,7 +65,7 @@
 	                   		<th scope="row">$nid</th>
 	          				<td>$title</td>
 				          	<td>$userid</td>
-				          	<td>date('Y-m-d H:i:s',$time)</td>
+				          	<td>".date('Y-m-d H:i:s',$time)."</td>
 				          	<td><a href="">编辑</a></td>
 				          	<td><a href="">删除</a></td>
 	                </tr>";

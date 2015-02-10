@@ -62,28 +62,21 @@
 	    </thead>
 	    <tbody>
 	    	<?php
-	            foreach ($row as $file) {
+	            foreach ($rows as $file) {
 	                $fid = $file["fileid"];
-	                $title = $file["title"];
-	                $time = $file["time"];
-	                $show = $file["ifshow"];
+	                $title = $file["filename"];
+	                $time = $file["uploadtime"];
+	                $show = $file["avilible"];
 	                $userid = $file["userid"];
 	                echo "<tr>
 	                   		<th scope='row'>$fid</th>
 	          				<td>$title</td>
 				          	<td>$userid</td>
-				          	<td>date('Y-m-d H:i:s',$time)</td>
+				          	<td>".date('Y-m-d H:i:s',$time)."</td>
 				          	<td><a href=''>删除</a></td>
 	                </tr>";
 	            }
 	        ?>
-	        <tr>
-	          	<th scope="row">1</th>
-	          	<td>期末答案你要不要.doc</td>
-	          	<td>罗杰</td>
-	          	<td>2015-01-01 12:45:22</td>
-	          	<td>删除</td>
-	        </tr>
 	    </tbody>
 	    </table>
     </div><!-- /.container -->

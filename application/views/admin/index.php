@@ -56,17 +56,17 @@
 	    </thead>
 	    <tbody>
 	       	<?php
-	            foreach ($mem as $file) {
+	            foreach ($rows as $file) {
 	                $fid = $file["fileid"];
 	                $title = $file["title"];
 	                $time = $file["time"];
-	                $show = $file["ifshow"];
+	                $show = $file["avilible"];
 	                $userid = $file["userid"];
 	                echo "<tr>
 	                   		<th scope='row'>$fid</th>
 	          				<td>$title</td>
 				          	<td>$userid</td>
-				          	<td>date('Y-m-d H:i:s',$time)</td>
+				          	<td>".date('Y-m-d H:i:s',$time)."</td>
 				          	<td><a href=>删除</a></td>
 	                </tr>";
 	            }

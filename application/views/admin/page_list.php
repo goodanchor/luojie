@@ -55,17 +55,16 @@
 	    </thead>
 	    <tbody>
 	    	 <?php
-	            foreach ($row as $page) {
+	            foreach ($rows as $page) {
 	                $pid = $page["passageid"];
 	                $title = $page["title"];
 	                $time = $page["time"];
-	                $show = $page["ifshow"];
 	                $userid = $page["userid"];
 	                echo "<tr>
 	                   		<th scope='row'>$pid</th>
 	          				<td>$title</td>
 				          	<td>$userid</td>
-				          	<td>date('Y-m-d H:i:s',$time)</td>
+				          	<td>".date('Y-m-d H:i:s',$time)."</td>
 				          	<td><a href='./index.php/passage/edit?pid=$pid'>编辑</a></td>
 				          	<td><a href=''>删除</a></td>
 	                </tr>";
