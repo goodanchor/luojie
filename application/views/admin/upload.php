@@ -8,7 +8,13 @@
 	<title>管理后台</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<base href = "<?php echo base_url();?>"/>
-	<script type="text/javascript"> window.URL = "<?php echo base_url();?>"; </script>
+	<script type="text/javascript">
+		 window.URL = "<?php echo base_url();?>";
+		 window.formData = {
+		 	timestamp : '<?php echo time();?>',
+		 	token : '<?php echo md5('smelltheflower' . time());?>'
+		 };
+	</script>
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./public/css/uploadify.css">

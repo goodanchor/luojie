@@ -18,7 +18,7 @@ class Files extends CI_Controller
             mkdir($targetFolder,0777);
         }
 
-        $verifyToken = md5('unique_salt'.$post['timestamp']);
+        $verifyToken = md5('smelltheflower'.$post['timestamp']);
         
         if ( ! empty($_FILES) && $post['token']==$verifyToken) {
             $tempFile = $_FILES['Filedata']['tmp_name'];
@@ -30,7 +30,7 @@ class Files extends CI_Controller
             $fileParts = pathinfo($_FILES['Filedata']['name']);
 
                 //if (in_array($fileParts['extension'],$fileTypes)){
-                move_upload_file($tempFile,$targetFile);
+                move_uploaded_file($tempFile,$targetFile);
                     //}
 
                 if ($this->files_model->upload($post,$_FILES['Filedata']['name'])){
