@@ -24,11 +24,15 @@ class Files extends CI_Controller
    
             $tempFile = $_FILES['Filedata']['tmp_name'];
             $targetPath = $targetFolder;
-            $targetFile = $targetPath.'/'.$_FILES['Filedata']['name'];
-               
-                 
+            
             $fileTypes = array();
             $fileParts = pathinfo($_FILES['Filedata']['name']);
+            
+            $fileaddress = md5(time().$_FILES['Filedata']['name']).'.'.$fileParts['extension'];
+            $targetFile = $targetPath.'/'.$fileaddress;
+               
+                 
+            
 
             print_r($_FILES);
             print_r($_FILES["Filedata"]["error"]);
@@ -37,7 +41,7 @@ class Files extends CI_Controller
                 return 0;
          
                 
-            if ($this->files_model->upload($post,$_FILES['Filedata']['name'])){
+            if ($this->files_model->upload($post,$_FILES['Filedata']['name'],$fileaddress)){
                 echo '1';
             }
             else  {
