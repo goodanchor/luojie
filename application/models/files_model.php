@@ -37,4 +37,13 @@ class Files_Model extends CI_Model
         }
         return FALSE;
     }
+
+    function delete($post)
+    {
+        if ($this->db->delete('upload',$post))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
 }
