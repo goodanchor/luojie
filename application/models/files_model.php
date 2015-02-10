@@ -15,7 +15,6 @@ class Files_Model extends CI_Model
         $arr['filename'] = $filename;
         $arr['fileaddress'] = $filename;
         $arr['uploadtime'] = time();
-        $arr['description'] = $post['description'];
 
         if ( $this->db->insert('upload',$arr) ){
             return $this->db->insert_id();

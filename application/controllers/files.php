@@ -11,38 +11,38 @@ class Files extends CI_Controller
 
     function upload()
     {
+       
+            
         $post = $this->input->post();
-        $targetFolder = base_url().'/public/uploads';
-
-        if( ! file_exists($targetFolder)) {
-            mkdir($targetFolder,0777);
-        }
-
+        $targetFolder = $_SERVER['DOCUMENT_ROOT'].'/luojie/public/upload';
+     
+           
         $verifyToken = md5('smelltheflower'.$post['timestamp']);
         
         if ( ! empty($_FILES) && $post['token']==$verifyToken) {
+           
+   
             $tempFile = $_FILES['Filedata']['tmp_name'];
             $targetPath = $targetFolder;
-            $targetFile = rtrim($targetPath,'/').'/'.$_FILES['Filedata']['name'];
-                /*validate the file type
-                  */
+            $targetFile = $targetPath.'/'.$_FILES['Filedata']['name'];
+               
+                 
             $fileTypes = array();
             $fileParts = pathinfo($_FILES['Filedata']['name']);
 
-                //if (in_array($fileParts['extension'],$fileTypes)){
-                move_uploaded_file($tempFile,$targetFile);
-                    //}
-
-                if ($this->files_model->upload($post,$_FILES['Filedata']['name'])){
-                    echo '1';
-                }
-                else  {
-                    echo '0';
-                } 
-                    
+            
+            move_uploaded_file($tempFile,$targetFile);
+                
+            if ($this->files_model->upload($post,$_FILES['Filedata']['name'])){
+                echo '1';
+            }
+            else  {
+                echo '0';
+            }        
+            
         }
         else {
-            echo '1';
+            echo '0';
         }
         return ;
     }
