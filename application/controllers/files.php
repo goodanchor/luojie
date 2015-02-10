@@ -24,17 +24,21 @@ class Files extends CI_Controller
    
             $tempFile = $_FILES['Filedata']['tmp_name'];
             $targetPath = $targetFolder;
-            $targetFile = $targetPath.'/'.iconv("UTF-8","gb2312", $_FILES['Filedata']['name']);
-               
-                 
+            
             $fileTypes = array();
             $fileParts = pathinfo($_FILES['Filedata']['name']);
+            
+            $fileaddress = md5(time().$_FILES['Filedata']['name']).'.'.$fileParts['extension'];
+            $targetFile = $targetPath.'/'.$fileaddress;
+               
+                 
+            
             
             if(!move_uploaded_file($tempFile,$targetFile))
                 return 0;
          
                 
-            if ($this->files_model->upload($post,$_FILES['Filedata']['name'])){
+            if ($this->files_model->upload($post,$_FILES['Filedata']['name'],$fileaddress)){
                 echo '1';
             }
             else  {

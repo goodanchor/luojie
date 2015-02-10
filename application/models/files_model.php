@@ -10,11 +10,11 @@ class Files_Model extends CI_Model
         $this->load->helper('file');
     }
 
-    function upload($post,$filename)
+    function upload($post,$filename,$fileaddress)
     {
         $arr['userid'] = $this->session->userdata('userid');
         $arr['filename'] = $filename;
-        $arr['fileaddress'] = $filename;
+        $arr['fileaddress'] = $fileaddress;
         $arr['uploadtime'] = time();
 
         if ( $this->db->insert('upload',$arr) ){
