@@ -55,6 +55,7 @@
 	    </thead>
 	    <tbody>
 	    	 <?php
+	    	 if($rows)
 	            foreach ($rows as $page) {
 	                $pid = $page["passageid"];
 	                $title = $page["title"];

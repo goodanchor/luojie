@@ -55,21 +55,22 @@
 	    </thead>
 	    <tbody>
 	        <?php
-	            foreach ($rows as $news) {
-	                $nid = $news["noticeid"];
-	                $title = $news["title"];
-	                $time = $news["time"];
-	                $show = $news["ifshow"];
-	                $userid = $news["userid"];
-	                echo "<tr>
-	                   		<th scope="row">$nid</th>
-	          				<td>$title</td>
-				          	<td>$userid</td>
-				          	<td>".date('Y-m-d H:i:s',$time)."</td>
-				          	<td><a href="">编辑</a></td>
-				          	<td><a href="">删除</a></td>
-	                </tr>";
-	            }
+	        if($rows)
+		            foreach ($rows as $news) {
+		                $nid = $news["noticeid"];
+		                $title = $news["title"];
+		                $time = $news["time"];
+		                $show = $news["ifshow"];
+		                $userid = $news["userid"];
+		                echo "<tr>
+		                   		<th scope='row'>$nid</th>
+		          				<td>$title</td>
+					          	<td>$userid</td>
+					          	<td>".date('Y-m-d H:i:s',$time)."</td>
+					          	<td><a href=''>编辑</a></td>
+					          	<td><a href=''>删除</a></td>
+		                </tr>";
+		            }
 	        ?>
 	    </tbody>
 	    </table>
