@@ -6,7 +6,8 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('admin_model');
         $this->load->helper(array('url','form'));
-        $this->load->library('form_validation');
+        $this->load->model('passage_model');
+        $this->load->model('files_model');
     }
 
 
@@ -87,7 +88,9 @@ class Admin extends CI_Controller
         }
         else
         {
-            $this->load->view('./admin/upload');
+            $rows = $this->files_model->fetch_all();
+            $data['rows'] = $rows;
+            $this->load->view('./admin/upload',$data);
         }
     }
 
@@ -100,45 +103,14 @@ class Admin extends CI_Controller
         }
         else
         {
-            $this->load->view('./admin/edit_page');
+            $rows = $this->passage_model->fetch_all();
+            $data['rows'] = $rows;
+            $this->load->view('./admin/page_list',$data);
         }
     }
 
     
-        /*文件上传*/
-    function upload_file()
-    {
-            /*设置上传路径*/
-        $path = base_url().'/public/uploads';
-
-        if( ! file_exists($path) ) {
-            mkdir($path,0777);
-        }
-            /*上传配置*/
-        $config['upload_path'] = $path.'/';
-        $config['max_size'] = '1000';
-        $config['encrypt_name'] = 'TRUE';
-
-        $this->load->library('upload',$config);
-            /*上传，*/
-        if ( ! $this->upload->do_upload()) {
-            $error = array('error'=>$this->upload->display_errors());
-
-            $this->load->view('./admin/upload',$error);
-        }
-        else {
-                /*写入数据库*/
-            $post = $this->input->post();
-            $data = $this->upload->data();
-            $res = $this->admin_model->upload($data,$post);
-            if ($res) {
-                $this->load->view('success');
-            }
-            else {
-                $filed['error'] = 'failed to upload';
-                $this->load->view('./admin/upload',$filed);
-            }            
-        }
-    }
+      
+   
         
 }

@@ -20,7 +20,21 @@ class Files_Model extends CI_Model
             return $this->db->insert_id();
         }
         else
-            return FALSE;
-        
+            return FALSE;       
+    }
+
+
+    function fetch_all()
+    {
+        $this->db->select('upload.*,user.name');
+        $this->db->from('upload');
+        $this->db->join('user','user.userid=upload.userid');
+
+        $query = $this->db->get();
+
+        if($rows = $query->result_array()){
+            return $rows;
+        }
+        return FALSE;
     }
 }
