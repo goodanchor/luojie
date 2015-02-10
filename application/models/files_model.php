@@ -56,7 +56,7 @@ class Files_Model extends CI_Model
 
     function delete($row)
     {
-        $path = './public/upload/'.$row['fileaddress'];
+        $path = './public/upload/'.iconv("UTF-8","gb2312",$row['fileaddress']);
        if(@unlink($path)){
             $this->db->delete('upload',array('fileid'=>$row['fileid']));
             return TRUE;

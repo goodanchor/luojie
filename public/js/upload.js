@@ -10,10 +10,9 @@ $(document).ready(function(){
         	},
         	'onUploadError' : function(file, errorCode, errorMsg, errorString) {
 	            alert('文件 ' + file.name + ' 上传失败: ' + errorString);
-			console.log(file);
+				console.log(file);
 	        },
 	        'onQueueComplete' : function(queueData) {
-			alert('成功');
 	            window.location.reload();
 	        }
 	    });

@@ -24,14 +24,11 @@ class Files extends CI_Controller
    
             $tempFile = $_FILES['Filedata']['tmp_name'];
             $targetPath = $targetFolder;
-            $targetFile = $targetPath.'/'.$_FILES['Filedata']['name'];
+            $targetFile = $targetPath.'/'.iconv("UTF-8","gb2312", $_FILES['Filedata']['name']);
                
                  
             $fileTypes = array();
             $fileParts = pathinfo($_FILES['Filedata']['name']);
-
-            print_r($_FILES);
-            print_r($_FILES["Filedata"]["error"]);
             
             if(!move_uploaded_file($tempFile,$targetFile))
                 return 0;
