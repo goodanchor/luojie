@@ -8,12 +8,13 @@
 	<title>管理后台</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<base href = "<?php echo base_url();?>"/>
-	<script type="text/javascript"> window.URL = "<?php echo base_url();?>"; </script>
+	<script type="text/javascript"> window.URL = "<?php echo base_url();?>";window.UMEDITOR_HOME_URL = "<?php echo base_url();?>public/ueditor/"; </script>
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+	<link href="./public/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="./public/js/jquery-min.js"></script>
-
+	<script src="./public/js/edit_page.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="./public/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="" />
@@ -28,8 +29,8 @@
 	          	<ul class="nav navbar-nav">
 	            	<li><a href="./index.php/admin/index">概况</a></li>
 	            	<li><a href="./index.php/admin/upload">文件管理</a></li>
-	            	<li class="active"><a href="./index.php/admin/passli">文章管理</a></li>
-	            	<li><a href="./index.php/admin/">公告管理</a></li>
+	            	<li><a href="./index.php/admin/passli">文章管理</a></li>
+	            	<li class="active"><a href="./index.php/admin/">公告管理</a></li>
 	            	<li><a href="./index.php/show/index">前台首页</a></li>
 	          	</ul>
 	          	<ul class="nav navbar-nav navbar-right">
@@ -40,39 +41,18 @@
     </nav>
 
     <div class="container">
-    	<h2>文章列表</h2>
-    	<a class="btn btn-success" style="margin:20px 0;" href="./index.php/passage/edit">发布新文章</a>
-    	<table class="table table-bordered" style="background:#fff;">
-	    <thead>
-	        <tr>
-	          	<th>#</th>
-	          	<th>标题</th>
-	          	<th>发布者</th>
-	          	<th>发布日期</th>
-	          	<th>编辑</th>
-	          	<th>删除</th>
-	        </tr>
-	    </thead>
-	    <tbody>
-	    	 <?php
-	    	 if($rows)
-	            foreach ($rows as $page) {
-	                $pid = $page["passageid"];
-	                $title = $page["title"];
-	                $time = $page["time"];
-	                $userid = $page["userid"];
-	                echo "<tr>
-	                   		<th scope='row'>$pid</th>
-	          				<td>$title</td>
-				          	<td>$userid</td>
-				          	<td>".date('Y-m-d H:i:s',$time)."</td>
-				          	<td><a href='./index.php/passage/edit?pid=$pid'>编辑</a></td>
-				          	<td><a href=''>删除</a></td>
-	                </tr>";
-	            }
-	        ?>
-	    </tbody>
-	    </table>
+    	<h2>编辑文章</h2>
+    	<a class="btn btn-primary" style="margin:20px 0;" href="./index.php/admin/passli">返回</a>
+    	<div class="form-group">
+	    	<label for="title">公告标题</label>
+	    	<input type="text" class="form-control" id="title" placeholder="公告标题">
+	  	</div>
+	  	<script id="container" name="content" type="text/plain"  style="width:100%;height:200px;"></script>
+	  	<div id="post_page" class="btn btn-success pull-right" style="margin:20px 0;">发布公告</div>
+	     <!-- 配置文件 -->
+	    <script type="text/javascript" src="./public/ueditor/umeditor.config.js"></script>
+	    <!-- 编辑器源码文件 -->
+	    <script type="text/javascript" src="./public/ueditor/umeditor.js"></script>
     </div><!-- /.container -->
 </body>
 </html>

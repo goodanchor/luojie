@@ -31,7 +31,7 @@
 	            	<li><a href="./index.php/admin/upload">文件管理</a></li>
 	            	<li class="active"><a href="./index.php/admin/passli">文章管理</a></li>
 	            	<li><a href="./index.php/admin/">公告管理</a></li>
-	            	<li><a href="./index.php">前台首页</a></li>
+	            	<li><a href="./index.php/show/index">前台首页</a></li>
 	          	</ul>
 	          	<ul class="nav navbar-nav navbar-right">
 	            	<li><a href="./index.php/admin/logout">登出</a></li>

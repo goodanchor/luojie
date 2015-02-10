@@ -30,7 +30,7 @@
 	            	<li><a href="./index.php/admin/upload">文件管理</a></li>
 	            	<li><a href="./index.php/admin/passli">文章管理</a></li>
 	            	<li class="active"><a href="./index.php/admin/">公告管理</a></li>
-	            	<li><a href="./index.php">前台首页</a></li>
+	            	<li><a href="./index.php/show/index">前台首页</a></li>
 	          	</ul>
 	          	<ul class="nav navbar-nav navbar-right">
 	            	<li><a href="./index.php/admin/logout">登出</a></li>
@@ -41,7 +41,7 @@
 
     <div class="container">
     	<h2>公告列表</h2>
-    	<a class="btn btn-success" style="margin:20px 0;" href="">发布新公告</a>
+    	<a class="btn btn-success" style="margin:20px 0;" href="./index.php/notice/editnews">发布新公告</a>
     	<table class="table table-bordered" style="background:#fff;">
 	    <thead>
 	        <tr>
