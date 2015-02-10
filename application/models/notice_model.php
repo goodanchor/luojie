@@ -5,7 +5,7 @@ class Notice_Model extends CI_Model
     {
         parent::__construct();
         $this->load->database();
-        $this->loda->library('session');
+        $this->load->library('session');
     }
         /*
          *
@@ -35,7 +35,7 @@ class Notice_Model extends CI_Model
 
     function update($post)
     {
-        if(!isset(post['noticeid']))
+        if(!isset($post['noticeid']))
             return FALSE;
         $post['content'] = htmlspecialchars($post['myEditor']);
         if ($this->db->update('notice',$post,array('noticeid'=>$post['noticeid'])))

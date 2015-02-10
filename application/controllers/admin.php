@@ -8,6 +8,7 @@ class Admin extends CI_Controller
         $this->load->helper(array('url','form'));
         $this->load->model('passage_model');
         $this->load->model('files_model');
+        $this->load->model('notice_model');
     }
 
 
@@ -109,7 +110,20 @@ class Admin extends CI_Controller
         }
     }
 
-    
+     function notice()
+    {
+        $session = $this->session->all_userdata();
+        if(!isset($session['userid'])){
+            $res['status'] = 0;
+            $res['msg'] = '您无权进行此操作';
+        }
+        else
+        {
+            $rows = $this->notice_model->fetch_all();
+            $data['rows'] = $rows;
+            $this->load->view('./admin/news_list',$data);
+        }
+    }
       
    
         
