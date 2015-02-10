@@ -22,7 +22,7 @@ class Admin extends CI_Controller
         $session = $this->session->all_userdata();
         if (isset($session['userid'])) {
             $data['session'] = $session;
-            $data['$rows'] = $this->admin_model->fetch_all();
+            $data['rows'] = $this->admin_model->fetch_all();
             $this->load->view('./admin/index',$data);
               
         }
