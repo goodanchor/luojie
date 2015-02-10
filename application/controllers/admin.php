@@ -100,7 +100,7 @@ class Admin extends CI_Controller
         }
         else
         {
-            $this->load->view('./admin/edit_page');
+            $this->load->view('./admin/page_list');
         }
     }
 
