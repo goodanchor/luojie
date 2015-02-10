@@ -14,7 +14,7 @@
 	<link href="./public/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="./public/js/jquery-min.js"></script>
-
+	<script src="./public/js/edit_page.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="./public/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="" />
@@ -47,15 +47,12 @@
 	    	<label for="title">标题</label>
 	    	<input type="text" class="form-control" id="title" placeholder="文章标题">
 	  	</div>
-	  	<script id="container" name="content" type="text/plain"  style="width:100%;height:1000px;"></script>
+	  	<script id="container" name="content" type="text/plain"  style="width:100%;height:500px;"></script>
+	  	<div id="post_page" class="btn btn-success pull-right" style="margin:20px 0;">发布文章</div>
 	     <!-- 配置文件 -->
 	    <script type="text/javascript" src="./public/ueditor/umeditor.config.js"></script>
 	    <!-- 编辑器源码文件 -->
 	    <script type="text/javascript" src="./public/ueditor/umeditor.js"></script>
-	    <!-- 实例化编辑器 -->
-	    <script type="text/javascript">
-	        var um = UM.getEditor('container');
-	    </script>
     </div><!-- /.container -->
 </body>
 </html>

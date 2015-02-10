@@ -4,7 +4,7 @@ $(document).ready(function(){
 	        height        : 30,
 	        width         : 120,
 	        swf           : URL + 'public/uploadify.swf',
-	        uploader      : URL + 'index.php/admin/upload_file',
+	        uploader      : URL + 'index.php/files/upload',
 	    });
 	  },100);
 });
