@@ -1,14 +1,14 @@
 $(document).ready(function(){
-	$("#post_page").click(function(){
+	$("#post_notice").click(function(){
 		var path = window.location.pathname.split("/");
-		var pid = !isNaN(Number(path[5]))?path[5]:false;//获取文章id
+		var nid = !isNaN(Number(path[5]))?path[5]:false;//获取文章id
         var content = UM.getEditor('container').getContent();
         var title = $("#title").val();
         if(!title.trim()){
         	alert("标题不能为空");
         	return;
         }
-        if(pid){
+        if(nid){
         	var url = URL + "index.php/notice/update_notice";
         }else{
         	var url = URL + "index.php/notice/add_notice";
@@ -17,6 +17,7 @@ $(document).ready(function(){
 			type:"post",
 			url:url,
 			data:{
+				noticeid : nid,
 				title : title,
 				content : content,
 			},

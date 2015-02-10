@@ -13,7 +13,7 @@ class Notice_Model extends CI_Model
     function add($post)
     {
         $arr = $post;
-        $arr['content'] = htmlspecialchars($post['myEditor']);
+        $arr['content'] = htmlspecialchars($post['content']);
         $arr['userid'] = $this->session->userdata('userid');
         $arr['time'] = time();
 
@@ -37,7 +37,7 @@ class Notice_Model extends CI_Model
     {
         if(!isset($post['noticeid']))
             return FALSE;
-        $post['content'] = htmlspecialchars($post['myEditor']);
+        $post['content'] = htmlspecialchars($post['content']);
         if ($this->db->update('notice',$post,array('noticeid'=>$post['noticeid'])))
         {
             return TRUE;

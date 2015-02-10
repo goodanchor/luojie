@@ -30,7 +30,7 @@
 	            	<li><a href="./index.php/admin/index">概况</a></li>
 	            	<li><a href="./index.php/admin/upload">文件管理</a></li>
 	            	<li><a href="./index.php/admin/passli">文章管理</a></li>
-	            	<li class="active"><a href="./index.php/admin/">公告管理</a></li>
+	            	<li class="active"><a href="./index.php/admin/notice">公告管理</a></li>
 	            	<li><a href="./index.php/show/index">前台首页</a></li>
 	          	</ul>
 	          	<ul class="nav navbar-nav navbar-right">
@@ -42,17 +42,31 @@
 
     <div class="container">
     	<h2>编辑文章</h2>
-    	<a class="btn btn-primary" style="margin:20px 0;" href="./index.php/admin/passli">返回</a>
+    	<a class="btn btn-primary" style="margin:20px 0;" href="./index.php/admin/notice">返回</a>
     	<div class="form-group">
 	    	<label for="title">公告标题</label>
-	    	<input type="text" class="form-control" id="title" placeholder="公告标题">
+	    	<input type="text" class="form-control" id="title" placeholder="公告标题" value="<?php if(isset($row))echo $row['title'];?>">
 	  	</div>
 	  	<script id="container" name="content" type="text/plain"  style="width:100%;height:200px;"></script>
-	  	<div id="post_page" class="btn btn-success pull-right" style="margin:20px 0;">发布公告</div>
+	  	<div id="post_notice" class="btn btn-success pull-right" style="margin:20px 0;">发布公告</div>
 	     <!-- 配置文件 -->
 	    <script type="text/javascript" src="./public/ueditor/umeditor.config.js"></script>
 	    <!-- 编辑器源码文件 -->
 	    <script type="text/javascript" src="./public/ueditor/umeditor.js"></script>
+	    <script type="text/javascript">
+			var um = UM.getEditor('container');//实例化编辑器
+	    	um.ready(function() {
+	    		um.execCommand('cleardoc');
+		       	um.execCommand('insertHtml',HTMLDecode("<?php if(isset($row))echo $row['content'];?>"));
+		    });
+		    function HTMLDecode(text){
+				var temp = document.createElement("div");
+				temp.innerHTML = text;
+				var output = temp.innerText || temp.textContent;
+				temp = null;
+				return output;
+			}
+	    </script>
     </div><!-- /.container -->
 </body>
 </html>

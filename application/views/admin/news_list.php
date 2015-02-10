@@ -29,7 +29,7 @@
 	            	<li><a href="./index.php/admin/index">概况</a></li>
 	            	<li><a href="./index.php/admin/upload">文件管理</a></li>
 	            	<li><a href="./index.php/admin/passli">文章管理</a></li>
-	            	<li class="active"><a href="./index.php/admin/">公告管理</a></li>
+	            	<li class="active"><a href="./index.php/admin/notice">公告管理</a></li>
 	            	<li><a href="./index.php/show/index">前台首页</a></li>
 	          	</ul>
 	          	<ul class="nav navbar-nav navbar-right">
@@ -41,7 +41,7 @@
 
     <div class="container">
     	<h2>公告列表</h2>
-    	<a class="btn btn-success" style="margin:20px 0;" href="./index.php/notice/editnews">发布新公告</a>
+    	<a class="btn btn-success" style="margin:20px 0;" href="./index.php/notice/edit">发布新公告</a>
     	<table class="table table-bordered" style="background:#fff;">
 	    <thead>
 	        <tr>
@@ -56,21 +56,20 @@
 	    <tbody>
 	        <?php
 	        if($rows)
-		            foreach ($rows as $news) {
-		                $nid = $news["noticeid"];
-		                $title = $news["title"];
-		                $time = $news["time"];
-		                $show = $news["ifshow"];
-		                $userid = $news["userid"];
-		                echo "<tr>
-		                   		<th scope='row'>$nid</th>
-		          				<td>$title</td>
-					          	<td>$userid</td>
-					          	<td>".date('Y-m-d H:i:s',$time)."</td>
-					          	<td><a href=''>编辑</a></td>
-					          	<td><a href=''>删除</a></td>
-		                </tr>";
-		            }
+	            foreach ($rows as $news) {
+	                $nid = $news["noticeid"];
+	                $title = $news["title"];
+	                $time = $news["time"];
+	                $userid = $news["userid"];
+	                echo "<tr>
+	                   		<th scope='row'>$nid</th>
+	          				<td>$title</td>
+				          	<td>$userid</td>
+				          	<td>".date('Y-m-d H:i:s',$time)."</td>
+				          	<td><a href='./index.php/notice/edit/$nid'>编辑</a></td>
+				          	<td><a href=''>删除</a></td>
+	                </tr>";
+	            }
 	        ?>
 	    </tbody>
 	    </table>

@@ -17,6 +17,7 @@ $(document).ready(function(){
 			type:"post",
 			url:url,
 			data:{
+				passageid :pid,
 				title : title,
 				content : content,
 			},

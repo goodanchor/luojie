@@ -53,7 +53,7 @@ class Notice extends CI_Controller
         echo json_encode($res);
     }
 
-    function del_passage()
+    function del_notice()
     {
         $session = $this->session->all_userdata();
         $post = $this->input->post();
@@ -72,7 +72,7 @@ class Notice extends CI_Controller
         echo json_encode($res);
     }
 
-    function update_passage()
+    function update_notice()
     {
         $session = $this->session->all_userdata();
         $post = $this->input->post();

@@ -35,7 +35,7 @@ class Passage_Model extends CI_Model
     {
         if(!isset($post['passageid']))
             return FALSE;
-        $post['content'] = htmlspecialchars($post['myEditor']);
+        $post['content'] = htmlspecialchars($post['content']);
         if ($this->db->update('passage',$post,array('passageid'=>$post['passageid'])))
         {
             return TRUE;

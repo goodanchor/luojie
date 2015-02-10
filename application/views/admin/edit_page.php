@@ -45,7 +45,7 @@
     	<a class="btn btn-primary" style="margin:20px 0;" href="./index.php/admin/passli">返回</a>
     	<div class="form-group">
 	    	<label for="title">标题</label>
-	    	<input type="text" class="form-control" id="title" placeholder="文章标题" value="<?php echo $row['title'];?>">
+	    	<input type="text" class="form-control" id="title" placeholder="文章标题" value="<?php if(isset($row))echo $row['title'];?>">
 	  	</div>
 	  	<script id="container" name="content" type="text/plain"  style="width:100%;height:500px;">
 	  	</script>
@@ -58,7 +58,7 @@
 			var um = UM.getEditor('container');//实例化编辑器
 	    	um.ready(function() {
 	    		um.execCommand('cleardoc');
-		       	um.execCommand('insertHtml',HTMLDecode("<?php echo $row['content'];?>"));
+		       	um.execCommand('insertHtml',HTMLDecode("<?php if(isset($row))echo $row['content'];?>"));
 		    });
 		    function HTMLDecode(text){
 				var temp = document.createElement("div");
