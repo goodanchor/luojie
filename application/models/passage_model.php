@@ -5,14 +5,14 @@ class Passage_Model extends CI_Model
     {
         parent::__construct();
         $this->load->database();
-        $this->loda->library('session');
+        $this->load->library('session');
     }
 
     function add($post)
     {
-        $arr['title'] = $psot['title']; 
+        $arr['title'] = $post['title']; 
         $arr['userid'] = $this->session->userdata('userid');
-        $arr['content'] = htmlspecialchars($post['myEditor']);
+        $arr['content'] = htmlspecialchars($post['content']);
         $arr['time'] = time();
 
         if($this->db->insert('passage',$arr)){
@@ -33,7 +33,7 @@ class Passage_Model extends CI_Model
 
     function update($post)
     {
-        if(!isset(post['passageid']))
+        if(!isset($post['passageid']))
             return FALSE;
         $post['content'] = htmlspecialchars($post['myEditor']);
         if ($this->db->update('passage',$post,array('passageid'=>$post['passageid'])))
