@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	var um = UM.getEditor('container');//实例化编辑器
 	$("#post_page").click(function(){
-		var pid = $GET["pid"] || false;
-		console.log(pid)
+		var path = window.location.pathname.split("/");
+		var pid = !isNaN(Number(path[5]))?path[5]:false;//获取文章id
         var content = UM.getEditor('container').getContent();
         var title = $("#title").val();
         if(!title.trim()){
@@ -33,19 +33,3 @@ $(document).ready(function(){
 		});
 	});
 });
-//获取get值
-var $GET = (function(){
-    var url = window.document.location.href.toString();
-    var u = url.split("?");
-    if(typeof(u[1]) == "string"){
-        u = u[1].split("&");
-        var get = {};
-        for(var i in u){
-            var j = u[i].split("=");
-            get[j[0]] = j[1];
-        }
-        return get;
-    } else {
-        return {};
-    }
-})();
