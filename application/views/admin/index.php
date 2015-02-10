@@ -55,13 +55,22 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <tr>
-	          	<th scope="row">1</th>
-	          	<td>课件.doc</td>
-	          	<td>1220</td>
-	          	<td>2015-01-01 12:45:22</td>
-	          	<td>23</td>
-	        </tr>
+	       	<?php
+	            foreach ($rows as $file) {
+	                $fid = $file["fileid"];
+	                $title = $file["title"];
+	                $time = $file["time"];
+	                $show = $file["avilible"];
+	                $userid = $file["userid"];
+	                echo "<tr>
+	                   		<th scope='row'>$fid</th>
+	          				<td>$title</td>
+				          	<td>$userid</td>
+				          	<td>".date('Y-m-d H:i:s',$time)."</td>
+				          	<td><a href=>删除</a></td>
+	                </tr>";
+	            }
+	        ?>
 	    </tbody>
 	    </table>
     </div><!-- /.container -->

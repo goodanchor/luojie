@@ -41,7 +41,7 @@
 
     <div class="container">
     	<h2>文章列表</h2>
-    	<a class="btn btn-success" style="margin:20px 0;" href="">发布新文章</a>
+    	<a class="btn btn-success" style="margin:20px 0;" href="./index.php/passage/edit">发布新文章</a>
     	<table class="table table-bordered" style="background:#fff;">
 	    <thead>
 	        <tr>
@@ -54,14 +54,22 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <tr>
-	          	<th scope="row">1</th>
-	          	<td>关于期末考试的安排</td>
-	          	<td>罗杰</td>
-	          	<td>2015-01-01 12:45:22</td>
-	          	<td><a href="">编辑</a></td>
-	          	<td><a href="">删除</a></td>
-	        </tr>
+	    	 <?php
+	            foreach ($rows as $page) {
+	                $pid = $page["passageid"];
+	                $title = $page["title"];
+	                $time = $page["time"];
+	                $userid = $page["userid"];
+	                echo "<tr>
+	                   		<th scope='row'>$pid</th>
+	          				<td>$title</td>
+				          	<td>$userid</td>
+				          	<td>".date('Y-m-d H:i:s',$time)."</td>
+				          	<td><a href='./index.php/passage/edit?pid=$pid'>编辑</a></td>
+				          	<td><a href=''>删除</a></td>
+	                </tr>";
+	            }
+	        ?>
 	    </tbody>
 	    </table>
     </div><!-- /.container -->
