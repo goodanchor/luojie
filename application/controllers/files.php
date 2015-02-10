@@ -47,7 +47,7 @@ class Files extends CI_Controller
         return ;
     }
   
-    function delete()
+    function del()
     {
         $session = $this->session->all_userdata();
         $post = $this->input->post();
@@ -55,6 +55,21 @@ class Files extends CI_Controller
             $res['msg'] = '您无权进行该操作';
             $res['status'] = 0 ;
         }
+        else{
+            $row = $this->files_model->fetch_one($post['fileid']);
+            $res = $this->files_model->delete($row);
+            if($res){
+                $res['msg'] = 'delete successfully';
+                $res['status'] = 1;    
+            }
+            else {
+
+                $res['msg'] = 'delete failed';
+                $res['status'] = 0 ;   
+            }
+
+        }
+        echo json_encode($res);
     }
  
 
