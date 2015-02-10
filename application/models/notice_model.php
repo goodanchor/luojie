@@ -64,7 +64,7 @@ class Notice_Model extends CI_Model
         $this->db->select('notice.noticeid,notice.title,notice.content,notice.time,notice.userid,user.name');
         $this->db->from('notice');
         $this->db->where('noticeid',$noticeid);
-        $this->db->join('user','user.id=notice.userid');
+        $this->db->join('user','user.userid=notice.userid');
         $query = $this->db->get();
 
         if($row = $query->row_array()){

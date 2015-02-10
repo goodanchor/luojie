@@ -8,14 +8,20 @@ class Passage extends CI_Controller
         $this->load->model('passage_model');
     }
 
-    function edit(){
+    function edit($pid=0){
         $session = $this->session->all_userdata();
         if(!isset($session['userid'])){
             $res['msg'] = '您无权进行该操作';
             $res['status'] = 0 ;
         }
         else {
-            $this->load->view('./admin/edit_page');
+            if($pid==0)
+                $this->load->view('./admin/edit_page');
+            else{
+                $row = $this->passage_model->fetch_one($pid);
+                $data['row'] = $row;
+                $this->load->view('./admin/edit_page',$data);
+            }
         }
     }
 

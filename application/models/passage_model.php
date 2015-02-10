@@ -62,7 +62,7 @@ class Passage_Model extends CI_Model
         $this->db->select('passage.passageid,passage.title,passage.content,passage.time,passage.userid,user.name');
         $this->db->from('passage');
         $this->db->where('passageid',$passageid);
-        $this->db->join('user','user.id=passage.userid');
+        $this->db->join('user','user.userid=passage.userid');
         $query = $this->db->get();
 
         if($row = $query->row_array()){
