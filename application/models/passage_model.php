@@ -10,8 +10,9 @@ class Passage_Model extends CI_Model
 
     function add($post)
     {
-        $arr = $post;
+        $arr['title'] = $psot['title']; 
         $arr['userid'] = $this->session->userdata('userid');
+        $arr['content'] = htmlspecialchars($post['myEditor']);
         $arr['time'] = time();
 
         if($this->db->insert('passage',$arr)){
@@ -34,6 +35,7 @@ class Passage_Model extends CI_Model
     {
         if(!isset(post['passageid']))
             return FALSE;
+        $post['content'] = htmlspecialchars($post['myEditor']);
         if ($this->db->update('passage',$post,array('passageid'=>$post['passageid'])))
         {
             return TRUE;

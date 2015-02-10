@@ -20,7 +20,7 @@ class Passage extends CI_Controller
             $res['msg'] = '请输入文章标题或标题过长';
             $res['status'] = 0;
         }
-        else if(!post['content']) {
+        else if(!post['myEditor']) {
             $res['msg'] = '请输入文章内容';
             $res['status'] = 0;
         }
@@ -66,7 +66,7 @@ class Passage extends CI_Controller
             $res['msg'] = '请输入文章标题或标题过长';
             $res['status'] = 0;
         }
-        else if(!post['content']) {
+        else if(!post['myEditor']) {
             $res['msg'] = '请输入文章内容';
             $res['status'] = 0;
         }

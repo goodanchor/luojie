@@ -5,7 +5,7 @@ class Files extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->help(array('url','form'));
+        $this->load->helper(array('url','form'));
         $this->load->model('files_model');
     }
 

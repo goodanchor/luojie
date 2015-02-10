@@ -20,7 +20,7 @@ class Notice extends CI_Controller
             $res['msg'] = '请输入的公告标题或标题过长';
             $res['status'] = 0;
         }
-        else if(!post['content']) {
+        else if(!post['myEditor']) {
             $res['msg'] = '请输入公告内容';
             $res['status'] = 0;
         }
@@ -66,7 +66,7 @@ class Notice extends CI_Controller
             $res['msg'] = '请输入公告标题或标题过长';
             $res['status'] = 0;
         }
-        else if(!post['content']) {
+        else if(!post['myEditor']) {
             $res['msg'] = '请输入公告内容';
             $res['status'] = 0;
         }
