@@ -38,7 +38,7 @@ class Show extends CI_Controller {
         if($row = $this->passage_model->fetch_one($pid))
         {
             $data['status'] = 1;
-            $data['msg'] = 'success';
+            $data['msg'] = 'success';   
             $data['row'] = $row;
         }
         else{
@@ -58,7 +58,7 @@ class Show extends CI_Controller {
         }
         else {
             $data['status'] = 0;
-            $data['msg'] = '暂时无文章';
+            $data['rows'] = array();
         }
         $this->load->view('filelist',$data);
     }
@@ -74,7 +74,7 @@ class Show extends CI_Controller {
             $data['msg'] = '暂时无文件';
         }
         print_r($data);
-            // $this->load->view('');
+        $this->load->view('file-list');
     }
 
     function captcha()
