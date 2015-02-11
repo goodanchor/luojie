@@ -71,6 +71,8 @@ class Files_Model extends CI_Model
         $query = $this->db->get_where('upload',array('fileid'=>$fileid));
         $row = $query->row_array();
         if($row){
+            $row['dowloadtimes']++;
+            $this->db->update('upload',array('dowloadtimes'=>$row['dowloadtimes']),array('fileid'=>$fileid));
             $fileaddress = $row['fileaddress'];
             $filename = $row['filename'];
             $data = './public/upload/'.$fileaddress;

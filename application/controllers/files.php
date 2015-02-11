@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class Files extends CI_Controller
 {
     function __construct()
@@ -78,29 +78,27 @@ class Files extends CI_Controller
 
     function download()
     {   
-        session_start();
         $post = $this->input->post();
-        if(!isset($post['captcha']) OR !isset($post['fileid']))
+        $session = $this->session->all_userdata();
+      /*  if(!isset($post['captcha']) OR !isset($post['fileid']))
         {
             $res['status'] = 0;
             $res['msg'] ='captcha errored';
         }
-        else if($post['captcha']==$_SESSION['captcha'])
+        else */
+        if($post['captcha']==$session['captcha'])
         {
             $row = $this->files_model->download($post['fileid']);
             if(!$row){
                 $res['msg'] = 'files not found';
-                $res['status'] = 0;
             }
             else {
-                $res['status'] = 1;
                 $res['msg'] = 'success';
             }
         }
         else {
-            $res['status'] = 0;
             $res['msg'] ='captcha errored';
         }
-        echo json_encode($res);
+        echo $res['msg'];
     }
 }

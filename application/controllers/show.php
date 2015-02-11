@@ -71,16 +71,13 @@ class Show extends CI_Controller {
         }
         else {
             $data['status'] = 0;
-            $data['msg'] = '暂时无文件';
         }
-        print_r($data);
-        $this->load->view('filelist');
+        $this->load->view('filelist',$data);
     }
 
     function captcha()
     {
-        $conf = array('name'=>'captcha');
-        $this->load->library('captcha',$conf);
-        $this->captcha->show();
+        $this->load->model('captcha_model');
+        $this->captcha_model->show('captcha');
     }
 }
