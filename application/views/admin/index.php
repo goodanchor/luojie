@@ -41,8 +41,8 @@
 
     <div class="container">
     	<h2>网站概况</h2>
-    	<p class="lead">总访问数: <?php echo $count["counts"];?></p>
-    	<p class="lead">今日访问数(PV): <?php echo $count["countall"];?></p>
+    	<p class="lead">总访问数: <?php echo $count["countall"];?></p>
+    	<p class="lead">今日访问数(PV): <?php echo $count["counts"];?></p>
     	<p class="lead">文件下载排行:</p>
     	<table class="table table-bordered" style="background:#fff;">
 	    <thead>
@@ -61,12 +61,12 @@
 	                $title = $file["filename"];
 	                $time = $file["uploadtime"];
 	                $show = $file["avilible"];
-	                $userid = $file["userid"];
+	                $downloadtimes = $file["dowloadtimes"];
 	                echo "<tr>
 	                   		<th scope='row'>$fid</th>
 	          				<td>$title</td>
-				          	<td>$userid</td>
-				          	<td>".date('Y-m-d H:i:s',$time)."</td>
+				          	<td>$downloadtimes</td>
+				          	<td>".date('Y-m-d',$time)."</td>
 	                	</tr>";
 	            }
 	        ?>
