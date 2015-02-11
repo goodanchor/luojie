@@ -41,8 +41,8 @@
 
     <div class="container">
     	<h2>网站概况</h2>
-    	<p class="lead">总访问数: 37219</p>
-    	<p class="lead">今日访问数(PV): 23</p>
+    	<p class="lead">总访问数: <?php echo $count["counts"];?></p>
+    	<p class="lead">今日访问数(PV): <?php echo $count["countall"];?></p>
     	<p class="lead">文件下载排行:</p>
     	<table class="table table-bordered" style="background:#fff;">
 	    <thead>
