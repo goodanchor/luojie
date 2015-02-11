@@ -60,7 +60,7 @@ class Show extends CI_Controller {
             $data['status'] = 0;
             $data['msg'] = '暂时无文章';
         }
-        $this->load->view('articlelist',$data);
+        $this->load->view('filelist',$data);
     }
     
     function files()

@@ -120,7 +120,7 @@ body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}
  	margin-left:60px;
  	margin-top: 10px;
  }
- .button{
+ .download_btn{
  	position: relative;
 	display: inline-block;
 	float:right;
@@ -137,7 +137,7 @@ body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}
  	 outline: none;
 
  }
- .button:hover{
+ .download_btn:hover{
  	background: rgb(211,224,243);
  }
 .page{
@@ -145,6 +145,21 @@ body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}
 	height:30px;
 	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
  	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+}
+#download_page{
+	display: none;
+	width:200px;
+	height:150px;
+	position: fixed;
+	top:200px;
+	left:50%;
+	margin-left:-110px;
+	background: #999;
+	padding:10px;
+}
+#download_page *{
+	float:left;
+	margin:5px 20px;
 }
  /* .container{
  	position: relative;
