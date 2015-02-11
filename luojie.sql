@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 02 月 10 日 08:27
--- 服务器版本: 5.6.12-log
--- PHP 版本: 5.4.12
+-- 生成日期: 2015-02-11 13:21:09
+-- 服务器版本: 5.5.41-0ubuntu0.14.04.1
+-- PHP 版本: 5.5.9-1ubuntu4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,27 @@ SET time_zone = "+00:00";
 --
 -- 数据库: `luojie`
 --
-CREATE DATABASE IF NOT EXISTS `luojie` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `luojie`;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `count`
+--
+
+CREATE TABLE IF NOT EXISTS `count` (
+  `date` int(3) unsigned NOT NULL COMMENT '今天日期',
+  `today` int(2) unsigned NOT NULL COMMENT '是否今天？1:0',
+  `counts` tinyint(10) unsigned NOT NULL DEFAULT '1' COMMENT '该日流量',
+  `countall` int(11) unsigned NOT NULL DEFAULT '1' COMMENT '总流量',
+  PRIMARY KEY (`date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='统计访问量';
+
+--
+-- 转存表中的数据 `count`
+--
+
+INSERT INTO `count` (`date`, `today`, `counts`, `countall`) VALUES
+(11, 1, 7, 7);
 
 -- --------------------------------------------------------
 
@@ -37,7 +56,14 @@ CREATE TABLE IF NOT EXISTS `notice` (
   `ifshow` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '显示？1：显示；0：否',
   `userid` int(10) NOT NULL COMMENT '发布者id',
   PRIMARY KEY (`noticeid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公告表' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='公告表' AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `notice`
+--
+
+INSERT INTO `notice` (`noticeid`, `title`, `content`, `time`, `top`, `ifshow`, `userid`) VALUES
+(2, '接口接口连接了', '&lt;p&gt;李昆临；看；拉昆；&lt;/p&gt;', 1423579584, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -53,14 +79,15 @@ CREATE TABLE IF NOT EXISTS `passage` (
   `ifshow` tinyint(1) NOT NULL DEFAULT '1' COMMENT '显示？1：显示；0：否',
   `userid` int(10) unsigned NOT NULL COMMENT '作者',
   PRIMARY KEY (`passageid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='文章表' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='文章表' AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `passage`
 --
 
 INSERT INTO `passage` (`passageid`, `title`, `content`, `time`, `ifshow`, `userid`) VALUES
-(1, 'dsa', '&lt;p&gt;dsa&lt;/p&gt;', 1423554500, 1, 1);
+(1, '我是萌萌的王迪', '我是萌萌的王迪', 1234567890, 1, 1),
+(3, 'wwwww', '&lt;p&gt;wwww&lt;/p&gt;', 1423576353, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +97,7 @@ INSERT INTO `passage` (`passageid`, `title`, `content`, `time`, `ifshow`, `useri
 
 CREATE TABLE IF NOT EXISTS `upload` (
   `fileid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'fileid',
-  `filename` varchar(20) NOT NULL COMMENT '文件名',
+  `filename` varchar(90) NOT NULL COMMENT '文件名',
   `fileaddress` varchar(40) NOT NULL COMMENT '文件地址',
   `uploadtime` int(11) unsigned NOT NULL COMMENT '上传时间',
   `dowloadtimes` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '下载次数',
@@ -78,7 +105,14 @@ CREATE TABLE IF NOT EXISTS `upload` (
   `description` varchar(140) NOT NULL COMMENT '文件描述',
   `avilible` tinyint(1) NOT NULL DEFAULT '1' COMMENT '可下载？1：可；0：否',
   PRIMARY KEY (`fileid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='上传表' AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='上传表' AUTO_INCREMENT=46 ;
+
+--
+-- 转存表中的数据 `upload`
+--
+
+INSERT INTO `upload` (`fileid`, `filename`, `fileaddress`, `uploadtime`, `dowloadtimes`, `userid`, `description`, `avilible`) VALUES
+(44, 'auto-complete-1.3.1.tar.bz2', '6ccdb7607ec629cc0e8a3e48eb6fb7c1.bz2', 1423586075, 0, 1, '', 1);
 
 -- --------------------------------------------------------
 

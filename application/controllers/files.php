@@ -78,6 +78,20 @@ class Files extends CI_Controller
         }
         echo json_encode($res);
     }
- 
+
+    function download()
+    {
+            /*
+        $post = $this->input->post();
+        if($post['captcha']==$this->session->userdata('captcha'))
+        {
+
+
+        }
+        else {
+            header('LOCATION:');
+            }*/
+        $this->files_model->download($fileid);
+    }
 
 }

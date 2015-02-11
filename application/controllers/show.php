@@ -12,4 +12,17 @@ class Show extends CI_Controller {
         $this->load->view('homepage');
     }
 
+    function article()
+    {
+        $this->load->view('article');
+    }
+
+    function articlelist()
+    {
+        $this->load->view('articlelist');
+    }
+    function files()
+    {
+        $this->load->view('');
+    }
 }

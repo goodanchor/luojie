@@ -63,4 +63,15 @@ class Files_Model extends CI_Model
         }
         return FALSE;
     }
+
+    function download($fileid)
+    {
+        $this->load->helper('download');
+        $query = $this->db->get_where('upload',array('fileid'=>$fileid));
+        $row = $query->row_array();
+        $fileaddress = $row['fileaddress'];
+        $filename = $row['filename'];
+        $data = './public/upload/'.$fileaddress;
+        force_download($filename,$data);
+    }
 }
