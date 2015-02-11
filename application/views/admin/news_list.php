@@ -55,7 +55,7 @@
 	    </thead>
 	    <tbody>
 	        <?php
-	        if($rows)
+	        if(isset($rows))
 	            foreach ($rows as $news) {
 	                $nid = $news["noticeid"];
 	                $title = $news["title"];

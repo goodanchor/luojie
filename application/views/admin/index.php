@@ -51,16 +51,15 @@
 	          	<th>文件名</th>
 	          	<th>总下载量</th>
 	          	<th>上传日期</th>
-	          	<th>日均下载量</th>
 	        </tr>
 	    </thead>
 	    <tbody>
 	       	<?php
-	       	if($rows)
+	       	if(isset($rows))
 	            foreach ($rows as $file) {
 	                $fid = $file["fileid"];
-	                $title = $file["title"];
-	                $time = $file["time"];
+	                $title = $file["filename"];
+	                $time = $file["uploadtime"];
 	                $show = $file["avilible"];
 	                $userid = $file["userid"];
 	                echo "<tr>
@@ -68,8 +67,7 @@
 	          				<td>$title</td>
 				          	<td>$userid</td>
 				          	<td>".date('Y-m-d H:i:s',$time)."</td>
-				          	<td><a href=>删除</a></td>
-	                </tr>";
+	                	</tr>";
 	            }
 	        ?>
 	    </tbody>

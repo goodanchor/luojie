@@ -62,7 +62,7 @@
 	    </thead>
 	    <tbody>
 	    	<?php
-	    	if($rows)
+	    	if(isset($rows))
 	            foreach ($rows as $file) {
 	                $fid = $file["fileid"];
 	                $title = $file["filename"];
