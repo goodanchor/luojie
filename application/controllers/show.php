@@ -74,7 +74,7 @@ class Show extends CI_Controller {
             $data['msg'] = '暂时无文件';
         }
         print_r($data);
-        $this->load->view('file-list');
+        $this->load->view('filelist');
     }
 
     function captcha()

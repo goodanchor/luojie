@@ -28,9 +28,9 @@ print_r($rows);
 		<img src="./public/images/hust.png" alt="hust" height="60px" width="84.4px" display="inline-block">
 		<img src="./public/images/ei.png" alt="ei" class="ei" height="60px" width="65.5px">
 		<div class="nav">
-			<div class="nav_cell">首页</div>
-			<div class="nav_cell">文章</div>
-			<div class="nav_cell">文件下载</div>
+			<a class="nav_cell" href="./index.php/show/index">首页</a>
+			<a class="nav_cell" href="./index.php/show/articlelist">文章</a>
+			<a class="nav_cell" href="./index.php/show/files">文件下载</a>
 		</div>
 	</div>
 </div>

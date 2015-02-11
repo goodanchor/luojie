@@ -24,7 +24,7 @@
 				<div class="nav">
 					<a class="nav_cell" href="./index.php/show/index">首页</a>
 					<a class="nav_cell" href="./index.php/show/articlelist">文章</a>
-					<a class="nav_cell" href="./index.php/show/filelist">文件下载</a>
+					<a class="nav_cell" href="./index.php/show/files">文件下载</a>
 				</div>
 			</div>
 		</div>
