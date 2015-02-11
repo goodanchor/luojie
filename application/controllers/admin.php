@@ -9,6 +9,7 @@ class Admin extends CI_Controller
         $this->load->model('passage_model');
         $this->load->model('files_model');
         $this->load->model('notice_model');
+        $this->load->model('count_model');
     }
 
 
@@ -19,7 +20,14 @@ class Admin extends CI_Controller
          * */
     function index()
     {
+      
         $session = $this->session->all_userdata();
+        if(isset($session['old']))
+            $data['count'] = $this->count_model->showcount();
+        else {
+            $data['count'] = $this->count_model->count();
+            $this->session->set_userdata(array('old'=>1));
+        }
         if (isset($session['userid'])) {
             $data['session'] = $session;
             $data['rows'] = $this->admin_model->fetch_all();
@@ -28,7 +36,6 @@ class Admin extends CI_Controller
         }
         else {
             $this->load->view('./admin/login');
-                // header('LOCATION : login');
         }
             
     }
