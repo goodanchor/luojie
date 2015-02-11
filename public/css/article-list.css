@@ -1,0 +1,167 @@
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}  
+ ol{margin:0; padding:0;border:0;}
+
+ #background{
+ 	position: absolute;
+ 	height:100%;
+ 	width:100%;
+ 	/* background: rgb(237,239,240); */
+ }
+ #top{
+ 	position: relative;
+ 	height:60px;
+ 	width:100%;
+ 	background: #000;
+ }
+ #head{
+ 	position: relative;
+ 	height:100%;
+ 	width:800px;
+ 	left:50%;
+ 	margin-left: -400px;
+ 	/* background: #ddd; */
+ 	font-size: 0;
+ }
+ .ei{
+ 	float:right;
+ }
+ .nav{
+ 	position: relative;
+ 	display: inline-block;
+ 	vertical-align: top;
+ 	height:100%;
+ 	width:650px;
+ 
+ }
+ .nav_cell{
+ 	display: inline-block;
+	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+	line-height: 60px;
+	padding-left: 35px;
+	padding-right:35px;
+	color: #787d82;
+ }
+ .nav_cell:hover{
+ 	background: rgb(54,60,65);
+ 	cursor: pointer;
+ 	color:#fff;
+ }
+ #main{
+ 	position: relative;
+	height:540px;
+	width:800px;
+	background: #fff;
+	left:50%;
+	margin-left: -400px;
+	font-size: 0;
+
+ }
+ .info{
+ 	position: relative;
+ 	margin-top: 20px;
+ 	width:100%;
+ 	height:20px;
+ 	/* background: #258; */
+
+ }
+ .info>div{
+	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+ 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+ 	display: inline-block;
+ 	background: rgb(135,135,135);
+ 	color: rgb(200,200,200);
+ 	padding-left:20px;
+ 	padding-right: 20px;
+ }
+ .bt{
+ 	display: inline-block;
+ }
+ .zz{
+ 	float:right;
+ 	display: inline-block;
+
+ }
+ .sj{
+ 	float:right;
+ 	display: inline-block;
+ 	margin-left:100px;
+ }
+ .list{
+ 	position: relative;
+ 	margin-bottom: 10px;
+ 	height:40px;
+ 	line-height: 40px;
+ 	width:100%;
+ 	background: rgb(237,239,240);
+ 	border:1px solid rgb(201,201,201);
+ 	font: 16px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+ 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+ }
+ 
+.page{
+	position: relative;
+	height:30px;
+	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+ 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+}
+ /* .container{
+ 	position: relative;
+ 	height:100%;
+ 	width:100%;
+ }
+ .path{
+ 	position: relative;
+ 	line-height:30px;
+ 	text-indent: 5em;
+ 	width:50%;
+ 	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+ 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+ 	border-bottom: solid 1px #999;
+ 
+ }
+ .title{
+ 	position: relative;
+ 	height:50px;
+ 	width:100%;
+ 	line-height:50px;
+ 	text-align: center;
+ 	font: 20px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+ 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+ }
+ .info{
+ 	position: relative;
+ 	height:40px;
+ 	width:100%;
+ 	line-height: 40px;
+ 	text-align: center;
+ 	font: 15px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+ 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+ }
+ .author{
+ 	position: relative;
+ 	display: inline-block;
+ 	font: 15px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+ 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+ }
+ .launchTime{
+ 	position: relative;
+ 	display: inline-block;
+ }
+ .display{
+ 	position: relative;
+ 	display: inline-block;
+ }
+ .mainBody{
+ 	position: relative;
+ 	padding:20px;
+ 	height:428px;
+ 	width:auto;
+ 	background: #641;
+ 	font: 13px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
+ 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+ 	 text-indent: 2em;
+ 	 word-wrap: break-word; 
+ 	word-break: normal; 
+ 	overflow: auto;
+ } */
