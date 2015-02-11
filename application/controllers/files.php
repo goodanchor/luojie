@@ -87,7 +87,8 @@ class Files extends CI_Controller
         }
         else */
         if($post['captcha']==$session['captcha'])
-        {
+        {   
+            $this->session->set_userdata(array('captcha'=>''));
             $row = $this->files_model->download($post['fileid']);
             if(!$row){
                 $res['msg'] = 'files not found';

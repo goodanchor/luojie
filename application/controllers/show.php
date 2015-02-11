@@ -60,7 +60,7 @@ class Show extends CI_Controller {
             $data['status'] = 0;
             $data['rows'] = array();
         }
-        $this->load->view('filelist',$data);
+        $this->load->view('articlelist',$data);
     }
     
     function files()

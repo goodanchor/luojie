@@ -17,10 +17,6 @@
 
  
 <body>
-<?php
-print_r($status);
-print_r($rows);
-?>
 
 <div id="background">
 <div id="top">
@@ -40,17 +36,16 @@ print_r($rows);
 		<div class="sj">时间</div>
 		<div class="zz">作者</div>
 	</div>
-	<div class="list">
-		<div class="bt">
-			title
-		</div>
-		<div class="sj">
-			2015/2/11
-		</div>
-		<div class="zz">
-			hustjzy
-		</div>
-	</div>
+<?php
+if($status){
+	foreach($rows as  $row){
+	echo'<div class="list">';
+	echo	'<div class="bt"><a href="./index.php/show/article/'.$row['passageid'].'">'.$row['title'].'</a></div>';
+	echo 	'<div class="sj">'.date('Y-m-d',$row['time']).'</div>';
+	echo'<div class="zz">'.$row['name'].'</div></div>';
+	}
+}
+?>
 	<div class="list"></div>
 	<div class="list"></div>
 	<div class="list"></div>
