@@ -31,6 +31,7 @@ class Admin extends CI_Controller
         if (isset($session['userid'])) {
             $data['session'] = $session;
             $data['rows'] = $this->admin_model->fetch_all();
+            print_r($data);
             $this->load->view('./admin/index',$data);
               
         }
@@ -72,7 +73,7 @@ class Admin extends CI_Controller
         /*账号登出*/
     function logout()
     {
-        $data = array('userid'=>'','name'=>'','ip'=>'','power'=>'');
+        $data = array('userid'=>'','name'=>'','ip'=>'','power'=>'','old'=>''    );
 
         $this->session->unset_userdata($data);
 
@@ -84,13 +85,11 @@ class Admin extends CI_Controller
     {
         $session = $this->session->all_userdata();
         if(!isset($session['userid'])){
-            $res['status'] = 0;
-            $res['msg'] = '您无权进行此操作';
+           show_404();
         }
         else
         {
             $rows = $this->files_model->fetch_all();
-            $data['rows'] = $rows;
             $this->load->view('./admin/upload',$data);
         }
     }
@@ -99,8 +98,7 @@ class Admin extends CI_Controller
     {
         $session = $this->session->all_userdata();
         if(!isset($session['userid'])){
-            $res['status'] = 0;
-            $res['msg'] = '您无权进行此操作';
+             show_404();
         }
         else
         {
@@ -114,8 +112,7 @@ class Admin extends CI_Controller
     {
         $session = $this->session->all_userdata();
         if(!isset($session['userid'])){
-            $res['status'] = 0;
-            $res['msg'] = '您无权进行此操作';
+           show_404();
         }
         else
         {

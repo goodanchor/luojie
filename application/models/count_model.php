@@ -30,7 +30,7 @@ class Count_Model extends CI_Model
             else{
                 $counts = $rows[$num-1]['counts'];
                 $countall = $rows[$num-1]['countall'];
-                $arr = array('date'=>$date,'today'=>1,'counts'=>$counts,'countall'=>$countall);
+                $arr = array('date'=>$date,'today'=>1,'counts'=>1,'countall'=>$countall);
                     // $this->db->insert('count',$arr);
                 if($num-1)
                     $this->db->delete('count',array('today'=>0));
@@ -39,8 +39,7 @@ class Count_Model extends CI_Model
                 return $row = $arr;
             }
 
-        }
-                  
+        }                
     }
 
     function showcount()
