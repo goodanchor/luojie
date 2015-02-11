@@ -44,8 +44,7 @@ class Count_Model extends CI_Model
 
     function showcount()
     {
-        $date = date('d');
-        $query = $this->db->get_where('count',array('date'=>$date));
+        $query = $this->db->get_where('count',array('today'=>1));
         return $row = $query->row_array();
     }
 }
