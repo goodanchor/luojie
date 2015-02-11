@@ -50,6 +50,7 @@ class Notice_Model extends CI_Model
         $this->db->select('notice.noticeid,notice.title,notice.time,notice.userid,user.name');
         $this->db->from('notice');
         $this->db->join('user','user.userid=notice.userid');
+        $this->db->order_by('time','desc');
 
         $query = $this->db->get();
 

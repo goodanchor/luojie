@@ -1,4 +1,5 @@
 <?php
+//session_start();
 	class Captcha
 	{
 	  	var	$width = '100';

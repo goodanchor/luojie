@@ -30,7 +30,7 @@ class Files_Model extends CI_Model
         $this->db->select('upload.*,user.name');
         $this->db->from('upload');
         $this->db->join('user','user.userid=upload.userid');
-
+        $this->db->order_by('uploadtime','desc');
         $query = $this->db->get();
 
         if($rows = $query->result_array()){
@@ -64,14 +64,19 @@ class Files_Model extends CI_Model
         return FALSE;
     }
 
-    function download($fileid)
-    {
+    function download($fileid=0)
+    {   
+        $fileid = (int)$fileid;
         $this->load->helper('download');
         $query = $this->db->get_where('upload',array('fileid'=>$fileid));
         $row = $query->row_array();
-        $fileaddress = $row['fileaddress'];
-        $filename = $row['filename'];
-        $data = './public/upload/'.$fileaddress;
-        force_download($filename,$data);
+        if($row){
+            $fileaddress = $row['fileaddress'];
+            $filename = $row['filename'];
+            $data = './public/upload/'.$fileaddress;
+            force_download($filename,$data);
+            return TRUE;
+        }
+        return FALSE;
     }
 }

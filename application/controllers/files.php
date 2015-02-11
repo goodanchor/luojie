@@ -77,18 +77,30 @@ class Files extends CI_Controller
     }
 
     function download()
-    {
-            /*
+    {   
+        session_start();
         $post = $this->input->post();
-        if($post['captcha']==$this->session->userdata('captcha'))
+        if(!isset($post['captcha']) OR !isset($post['fileid']))
         {
-
-
+            $res['status'] = 0;
+            $res['msg'] ='captcha errored';
+        }
+        else if($post['captcha']==$_SESSION['captcha'])
+        {
+            $row = $this->files_model->download($post['fileid']);
+            if(!$row){
+                $res['msg'] = 'files not found';
+                $res['status'] = 0;
+            }
+            else {
+                $res['status'] = 1;
+                $res['msg'] = 'success';
+            }
         }
         else {
-            header('LOCATION:');
-            }*/
-        $this->files_model->download($fileid);
+            $res['status'] = 0;
+            $res['msg'] ='captcha errored';
+        }
+        echo json_encode($res);
     }
-
 }
