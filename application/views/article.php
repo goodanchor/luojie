@@ -2,10 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
-<link href="../../public/css/article.css" rel="stylesheet" type="text/css" />
+<base href = "<?php echo base_url();?>"/>
+<script type="text/javascript"> window.URL = "<?php echo base_url();?>"; </script>
+<link href="./public/css/article.css" rel="stylesheet" type="text/css" />
 
-<script src="../../public/js/article.js" ></script>
-<script src="../../public/js/jquery-1.11.2.min.js" ></script>
+<script src="./public/js/article.js" ></script>
+<script src="./public/js/jquery-1.11.2.min.js" ></script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 
