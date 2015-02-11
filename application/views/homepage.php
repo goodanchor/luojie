@@ -11,8 +11,7 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 
-<base href="<?php echo base_url();?>"/>
-<script type="text/javascript"> window.URL = "<?php echo base_url();?>";</script>
+
 <!-- 你最好检查一下这两行 -->
 
 </head>
