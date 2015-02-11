@@ -38,11 +38,13 @@ class Show extends CI_Controller {
         if($row = $this->passage_model->fetch_one($pid))
         {
             $data['status'] = 1;
+            $data['msg'] = 'success';
             $data['row'] = $row;
         }
         else{
             $data['status'] = 0;
             $data['msg'] = '您查找的文章不存在或已删除';
+            $data['row'] = array();
         }
         $this->load->view('article',$data);
         

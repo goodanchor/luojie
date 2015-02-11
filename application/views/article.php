@@ -19,6 +19,7 @@
 
  
 <body>
+
 <div id="background">
 <div id="top">
 	<div id="head">
@@ -32,16 +33,21 @@
 	</div>
 </div>
 <div id="main">
-	<div class="container">
-		<div class="path">文章 > 学术 </div>
-		<div class="title">Title</div>
-		<div class="info">
-			作者: <div class="author">hustjzy</div>&nbsp;&nbsp;&nbsp;&nbsp; 发表时间:&nbsp;&nbsp;<div class="launchTime">2015.2.9</div>&nbsp;&nbsp;
-			是否显示: <div class="display">none</div>
-		</div>
-		<div class="mainBody">feqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwwwfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwwwfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwwwfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwwwfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwww
-		feqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwwwfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwwwfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwwwfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwwwfeqddeweqeqerdqwwwwwwwwwwwwwwwwwwwwwwwwwwwwqqqqqqqqqqqqqqqqqdwqdwwwwwwwwwww</div>
-	</div>
+<?php
+	if(!$status){
+		echo '<div class="container">';
+		echo  "<div class='mainBody'>".$msg."</div>"; 
+		echo '</div>';
+	}
+	else{
+		echo '<div class="container">';
+		echo '<div class="title">'.$row['title'].'</div>';
+		echo '<div class="info">';
+		echo'作者: <div class="author">'.$row['name'].	'</div>&nbsp;&nbsp;&nbsp;&nbsp; 发表时间:&nbsp;&nbsp;<div class="launchTime">'.date('Y-m-d',$row['time']).'</div>&nbsp;&nbsp;</div>';
+		echo  "<div class='mainBody'>".htmlspecialchars_decode($row['content'])."</div>"; 
+		echo '</div>';
+	}
+?>
 </div>
 </div>
 </body>
