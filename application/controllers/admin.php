@@ -10,6 +10,7 @@ class Admin extends CI_Controller
         $this->load->model('files_model');
         $this->load->model('notice_model');
         $this->load->model('count_model');
+        $this->load->library('pagination');
     }
 
 
@@ -95,7 +96,7 @@ class Admin extends CI_Controller
         }
     }
 
-    function passli()
+    function passli($limit=0)
     {
         $session = $this->session->all_userdata();
         if(!isset($session['userid'])){
@@ -103,14 +104,27 @@ class Admin extends CI_Controller
             $res['msg'] = '您无权进行此操作';
         }
         else
-        {
-            $rows = $this->passage_model->fetch_all();
+        {   
+            //pagination
+            $config['base_url'] = base_url().'index.php/admin/passli';
+            $config['total_rows'] = $this->passage_model->count_all();;
+            //$config['first_url'] = base_url().'index.php/admin/passli/0';
+            $config['per_page'] = 2;
+            $config['num_links'] = 3;
+            $config['full_tag_open'] = '<p>';
+            $config['full_tag_close'] = '</p>'; 
+            $this->pagination->initialize($config);
+
+            $limit = (int)$limit;
+            if($limit<0 OR $limit>=$config['total_rows'])
+                $limit = 0;
+            $rows = $this->passage_model->fetch_all($limit,$config['per_page']);
             $data['rows'] = $rows;
             $this->load->view('./admin/page_list',$data);
         }
     }
 
-     function notice()
+     function notice($limit=0)
     {
         $session = $this->session->all_userdata();
         if(!isset($session['userid'])){
@@ -118,8 +132,20 @@ class Admin extends CI_Controller
             $res['msg'] = '您无权进行此操作';
         }
         else
-        {
-            $rows = $this->notice_model->fetch_all();
+        {  
+            $config['base_url'] = base_url().'index.php/admin/notice';
+            $config['total_rows'] = $this->notice_model->count_all();
+            $config['per_page'] = 2;
+            $config['num_links'] = 3;
+            $config['full_tag_open'] = '<p>';
+            $config['full_tag_close'] = '</p>'; 
+            $this->pagination->initialize($config);
+
+            $limit = (int)$limit;
+            if($limit<0 OR $limit>=$config['total_rows'])
+                $limit = 0; 
+
+            $rows = $this->notice_model->fetch_all($limit,$config['per_page']);
             $data['rows'] = $rows;
             $this->load->view('./admin/news_list',$data);
         }

@@ -46,16 +46,7 @@ if($status){
 	}
 }
 ?>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="page">1 2 3 </div>
+	<div class="page"><?php echo $this->pagination->create_links()?></div>
 </div>
 </div>
 </body>

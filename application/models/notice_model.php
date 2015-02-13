@@ -45,12 +45,19 @@ class Notice_Model extends CI_Model
         return FALSE;
     }
 
-    function fetch_all()
+    function count_all()
+    {
+        $query = $this->db->get('notice');
+        return $query->num_rows;
+    }
+
+    function fetch_all($limit=NULL,$perpage=NULL)
     {
         $this->db->select('notice.noticeid,notice.title,notice.time,notice.userid,user.name');
         $this->db->from('notice');
         $this->db->join('user','user.userid=notice.userid');
         $this->db->order_by('time','desc');
+        $this->db->limit($perpage,$limit);
 
         $query = $this->db->get();
 

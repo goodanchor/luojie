@@ -50,9 +50,24 @@ class Show extends CI_Controller {
         
     }
 
-    function articlelist()
-    {
-        if($rows = $this->passage_model->fetch_all()){
+    function articlelist($limit=0)
+    {       
+        $this->load->library('pagination');
+        //pagination
+         $config['base_url'] = base_url().'index.php/show/articlelist';
+         $config['total_rows'] = $this->passage_model->count_all();;
+            //$config['first_url'] = base_url().'index.php/admin/passli/0';
+         $config['per_page'] = 2;
+         $config['num_links'] = 3;
+         $config['full_tag_open'] = '<p>';
+         $config['full_tag_close'] = '</p>'; 
+         $this->pagination->initialize($config);
+
+         $limit = (int)$limit;
+         if($limit<0 OR $limit>=$config['total_rows'])
+            $limit = 0;
+
+        if($rows = $this->passage_model->fetch_all($limit,$config['per_page'])){
             $data['status'] = 1;
             $data['rows'] = $rows;
         }

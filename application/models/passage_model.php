@@ -43,11 +43,18 @@ class Passage_Model extends CI_Model
         return FALSE;
     }
 
-    function fetch_all()
+    function count_all()
+    {
+        $query = $this->db->get('passage');
+        return $query->num_rows;
+    }
+
+    function fetch_all($limit=NULL,$perpage=NULL)
     {
         $this->db->select('passage.passageid,passage.title,passage.time,passage.userid,user.name');
         $this->db->from('passage');
         $this->db->join('user','user.userid=passage.userid');
+        $this->db->limit($perpage,$limit);
 
         $query = $this->db->get();
 
