@@ -100,6 +100,7 @@
 					$("body").append(link);
 					$("#tempLink")[0].click();
 					$("#tempLink").remove();
+					$("#cancel")[0].click();
 				}
 			}
 		});
