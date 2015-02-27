@@ -75,7 +75,7 @@ class Files_Model extends CI_Model
             $this->db->update('upload',array('dowloadtimes'=>$row['dowloadtimes']),array('fileid'=>$fileid));
             $fileaddress = $row['fileaddress'];
             $filename = $row['filename'];
-            $data = './public/upload/'.$fileaddress;
+            $data = file_get_contents('./public/upload/'.$fileaddress);
             force_download($filename,$data);
             return TRUE;
         }

@@ -36,32 +36,42 @@
 				<div class="scz">上传者</div>
 
 			</div>
-			<?php 
-				if($status){
-					foreach($rows as $row){
-						echo'<div class="list">';
-						echo	'<div class="wj">'.$row['filename'].'</div>';
-						echo 		'<input type="button" class="download_btn" value="下载" name="'.$row['fileid'].'">';
-						echo 	'<div class="sj">'.date('Y-m-d',$row['uploadtime']).'</div>';
-						echo	'<div class="scz">'.$row['name'].'</div>';
-						echo'</div>';
-					}
-				}
-				else{
-					echo '<div class="list">no files</div>';
-				}
-			?>
+<?php 
+	if($status){
+		foreach($rows as $row){
+			echo'<div class="list">';
+			echo	'<div class="wj">'.$row['filename'].'</div>';
+			echo 		'<input type="button" class="download_btn" value="下载" name="'.$row['fileid'].'">';
+			echo 	'<div class="sj">'.date('Y-m-d',$row['uploadtime']).'</div>';
+			echo	'<div class="scz">'.$row['name'].'</div>';
+			echo'</div>';
+		}
+	}
+	else{
+		echo '<div class="list">no files</div>';
+	}
+?>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="page">1 2 3 </div>
 		</div>
 	</div>
-	<div id="download_page">
+	<form id="download_page" action='index.php/files/download' method='post'>
 		<img src="./index.php/show/captcha">
 		<label for="captcha">验证码</label>
 		<input type="button" id="refresh" value="刷新" >
 		<input type='hidden' id='fileid' name='fileid'>
 		<input type="text" id="captcha" name='captcha'>
-		<input type="button" id="submit" value="下载" >
+		<input type="submit" id="submit" value="下载" >
 		<input type="button" id="cancel" value="取消" >
-	</div>
+	</form>
 </body>
 <script type="text/javascript">
 	var cur_fileId = 0;
@@ -79,7 +89,7 @@
 		 $("#captcha").val("");
 		$("#download_page").hide();
 	});
-	$("#submit").click(function(){
+	/*$("#submit").click(function(){
 		$.ajax({
 			type:"post",
 			url:URL + "index.php/files/download",
@@ -87,23 +97,16 @@
 				captcha : $("#captcha").val().trim(),
 				fileid : cur_fileId,
 			},
+			dataType:"json",
 			success:function(res){
-				if(res == "captcha errored"){
-					alert("验证码错误");
-					$("#download_page img").attr("src","./index.php/show/captcha?rand=" + Math.random());
+				if(res.status){
+					
 				}else{
-					var link=$("<a>");
-					link.attr("id","tempLink");
-					link.attr("href",res);
-					link.attr("target","_blank");
-					link.hide();
-					$("body").append(link);
-					$("#tempLink")[0].click();
-					$("#tempLink").remove();
-					$("#cancel")[0].click();
+					alert(res.msg);
+		 			$("#captcha").val("");
 				}
 			}
 		});
-	});
+	});*/
 </script>
 </html>
