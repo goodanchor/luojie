@@ -21,8 +21,11 @@ class Admin extends CI_Controller
          * */
     function index()
     {
-      
+        
         $session = $this->session->all_userdata();
+        //$data['class'] =  isset($session['class'])?$session['class']:0;
+        if(!isset($session['class']))
+            $this->session->set_userdata(array('class'=>0));
         if(isset($session['old']))
             $data['count'] = $this->count_model->showcount();
         else {
@@ -32,15 +35,42 @@ class Admin extends CI_Controller
         if (isset($session['userid'])) {
             $data['session'] = $session;
             $data['rows'] = $this->admin_model->fetch_all();
+            $data['class'] = $this->session->userdata('class');
             $this->load->view('./admin/index',$data);
               
         }
         else {
             $this->load->view('./admin/login');
-        }
-            
+        }        
     }
 
+   function setclass()
+    {
+        $class = 1  ;//(int)$this->input->get('class');
+        if(!in_array($class, array(1,2,3,4)))
+        {
+            $this->session->set_userdata(array('class'=>0));
+            $res['status'] = 0;
+            $res['msg'] = 'CLASS NOT FOUND';
+        }
+        else 
+        {   
+            if( ($this->session->userdata('power') != $class) AND ($this->session->userdata('power') != 0) )
+            {
+                $this->session->set_userdata(array('class'=>0));
+                $res['status'] = 0;
+                $res['msg'] ='YOU HAVE NO ACCESS';
+            }
+            else
+            {
+                $this->session->set_userdata(array('class'=>$class));
+                $res['status'] = 1;
+                $res['msg'] = 'SUCCESS';
+            }
+        }
+        print_r($res);
+        //echo json_encode($res);
+    }
     
 
         /*管理员和教师登录*/
@@ -73,7 +103,7 @@ class Admin extends CI_Controller
         /*账号登出*/
     function logout()
     {
-        $data = array('userid'=>'','name'=>'','ip'=>'','power'=>'','old'=>'');
+        $data = array('userid'=>'','name'=>'','ip'=>'','power'=>'','old'=>'','class'=>'');
 
         $this->session->unset_userdata($data);
 
@@ -92,6 +122,7 @@ class Admin extends CI_Controller
         {
             $rows = $this->files_model->fetch_all();
             $data['rows'] = $rows;
+            $data['class'] = $session['class'];
             $this->load->view('./admin/upload',$data);
         }
     }
@@ -120,6 +151,7 @@ class Admin extends CI_Controller
                 $limit = 0;
             $rows = $this->passage_model->fetch_all($limit,$config['per_page']);
             $data['rows'] = $rows;
+            $data['class'] = $session['class'];
             $this->load->view('./admin/page_list',$data);
         }
     }
@@ -147,6 +179,7 @@ class Admin extends CI_Controller
 
             $rows = $this->notice_model->fetch_all($limit,$config['per_page']);
             $data['rows'] = $rows;
+            $data['class'] = $session['class'];
             $this->load->view('./admin/news_list',$data);
         }
     }
