@@ -3,6 +3,30 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
+<?php
+if(isset($class)){
+	switch ($class) {
+		case '1':
+			$className = "信号与控制综合实验";
+			break;
+		case '2':
+			$className = "数字电路与逻辑设计";
+			break;
+		case '3':
+			$className = "微机原理与逻辑设计";
+			break;
+		case '4':
+			$className = "嵌入式系统";
+			break;
+		
+		default:
+			$className = false;
+			break;
+	}
+}else{
+	$className = false;
+}
+?>
 <head>
 	<meta charset="utf-8" />
 	<title>管理后台</title>
@@ -22,7 +46,7 @@
 	<nav class="navbar navbar-inverse ">
      	<div class="container">
 	        <div class="navbar-header">
-	          	<a class="navbar-brand" href="./index.php/admin/index">课程网站后台</a>
+	          	<a class="navbar-brand" href="./index.php/admin/index"><?php echo $className?$className : "课程网站后台";?></a>
 	        </div>
 	        <div id="navbar" class="collapse navbar-collapse">
 	          	<ul class="nav navbar-nav">
@@ -40,40 +64,44 @@
     </nav>
 
     <div class="container">
-    	<h2>公告列表</h2>
-    	<a class="btn btn-success" style="margin:20px 0;" href="./index.php/notice/edit">发布新公告</a>
-    	<table class="table table-bordered" style="background:#fff;">
-	    <thead>
-	        <tr>
-	          	<th>#</th>
-	          	<th>标题</th>
-	          	<th>发布者</th>
-	          	<th>发布日期</th>
-	          	<th>编辑</th>
-	          	<th>删除</th>
-	        </tr>
-	    </thead>
-	    <tbody>
-	        <?php
-	        if(!empty($rows))
-	            foreach ($rows as $news) {
-	                $nid = $news["noticeid"];
-	                $title = $news["title"];
-	                $time = $news["time"];
-	                $userid = $news["userid"];
-	                echo "<tr>
-	                   		<th scope='row'>$nid</th>
-	          				<td>$title</td>
-				          	<td>$userid</td>
-				          	<td>".date('Y-m-d H:i:s',$time)."</td>
-				          	<td><a href='./index.php/notice/edit/$nid'>编辑</a></td>
-				          	<td class='del' name='$nid'><a href='javascript:void(0)'>删除</a></td>
-	                </tr>";
-	            }
-	        ?>
-	    </tbody>
-	    </table>
-	    <?php echo $this->pagination->create_links()?>
+    	<?php if ($className):?>
+	    	<h2>公告列表</h2>
+	    	<a class="btn btn-success" style="margin:20px 0;" href="./index.php/notice/edit">发布新公告</a>
+	    	<table class="table table-bordered" style="background:#fff;">
+		    <thead>
+		        <tr>
+		          	<th>#</th>
+		          	<th>标题</th>
+		          	<th>发布者</th>
+		          	<th>发布日期</th>
+		          	<th>编辑</th>
+		          	<th>删除</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <?php
+		        if(!empty($rows))
+		            foreach ($rows as $news) {
+		                $nid = $news["noticeid"];
+		                $title = $news["title"];
+		                $time = $news["time"];
+		                $userid = $news["userid"];
+		                echo "<tr>
+		                   		<th scope='row'>$nid</th>
+		          				<td>$title</td>
+					          	<td>$userid</td>
+					          	<td>".date('Y-m-d H:i:s',$time)."</td>
+					          	<td><a href='./index.php/notice/edit/$nid'>编辑</a></td>
+					          	<td class='del' name='$nid'><a href='javascript:void(0)'>删除</a></td>
+		                </tr>";
+		            }
+		        ?>
+		    </tbody>
+		    </table>
+		    <?php echo $this->pagination->create_links()?>
+	    <?php else: ?>
+	    	<h2>请先在首页选择课程 <a href="./index.php/admin/index">首页</a></h2>
+	    <?php endif ?>
     </div><!-- /.container -->
     <script type="text/javascript">
     	$(document).ready(function(){

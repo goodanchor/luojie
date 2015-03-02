@@ -3,6 +3,30 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
+<?php
+if(isset($class)){
+	switch ($class) {
+		case '1':
+			$className = "信号与控制综合实验";
+			break;
+		case '2':
+			$className = "数字电路与逻辑设计";
+			break;
+		case '3':
+			$className = "微机原理与逻辑设计";
+			break;
+		case '4':
+			$className = "嵌入式系统";
+			break;
+		
+		default:
+			$className = false;
+			break;
+	}
+}else{
+	$className = false;
+}
+?>
 <head>
 	<meta charset="utf-8" />
 	<title>管理后台</title>
@@ -22,7 +46,7 @@
      	<nav class="navbar navbar-inverse">
      	<div class="container">
 	        <div class="navbar-header">
-	          	<a class="navbar-brand" href="./index.php/admin/index">课程网站后台</a>
+	          	<a class="navbar-brand" href="./index.php/admin/index"><?php echo $className?$className : "课程网站后台";?></a>
 	        </div>
 	        <div id="navbar" class="collapse navbar-collapse">
 	          	<ul class="nav navbar-nav">
@@ -40,6 +64,17 @@
     </nav>
 
     <div class="container">
+    	<?php
+    	if($className){
+    		echo "<h2>当前课程 ：".$className;
+    	}else{
+    		echo "<h2>选择课程</h2>
+		    	<a class='btn btn-primary' href=''>信号与控制综合实验</a>
+		    	<a class='btn btn-primary' href=''>数字电路与逻辑设计</a>
+		    	<a class='btn btn-primary' href=''>微机原理与接口技术</a>
+		    	<a class='btn btn-primary' href=''>嵌入式系统</a>";
+		}
+		?>
     	<h2>网站概况</h2>
     	<p class="lead">总访问数: <?php echo $count["countall"];?></p>
     	<p class="lead">今日访问数(PV): <?php echo $count["counts"];?></p>

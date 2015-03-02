@@ -3,6 +3,30 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
+<?php
+if(isset($class)){
+	switch ($class) {
+		case '1':
+			$className = "信号与控制综合实验";
+			break;
+		case '2':
+			$className = "数字电路与逻辑设计";
+			break;
+		case '3':
+			$className = "微机原理与逻辑设计";
+			break;
+		case '4':
+			$className = "嵌入式系统";
+			break;
+		
+		default:
+			$className = false;
+			break;
+	}
+}else{
+	$className = false;
+}
+?>
 <head>
 	<meta charset="utf-8" />
 	<title>管理后台</title>
@@ -23,7 +47,7 @@
 	<nav class="navbar navbar-inverse">
      	<div class="container">
 	        <div class="navbar-header">
-	          	<a class="navbar-brand" href="./index.php/admin/index">课程网站后台</a>
+	          	<a class="navbar-brand" href="./index.php/admin/index"><?php echo $className?$className : "课程网站后台";?></a>
 	        </div>
 	        <div id="navbar" class="collapse navbar-collapse">
 	          	<ul class="nav navbar-nav">
@@ -41,33 +65,37 @@
     </nav>
 
     <div class="container">
-    	<h2>编辑文章</h2>
-    	<a class="btn btn-primary" style="margin:20px 0;" href="./index.php/admin/passli">返回</a>
-    	<div class="form-group">
-	    	<label for="title">标题</label>
-	    	<input type="text" class="form-control" id="title" placeholder="文章标题" value="<?php if(isset($row))echo $row['title'];?>">
-	  	</div>
-	  	<script id="container" name="content" type="text/plain"  style="width:100%;height:500px;">
-	  	</script>
-	  	<div id="post_page" class="btn btn-success pull-right" style="margin:20px 0;">发布文章</div>
-	     <!-- 配置文件 -->
-	    <script type="text/javascript" src="./public/ueditor/umeditor.config.js"></script>
-	    <!-- 编辑器源码文件 -->
-	    <script type="text/javascript" src="./public/ueditor/umeditor.js"></script>
-	    <script type="text/javascript">
-			var um = UM.getEditor('container');//实例化编辑器
-	    	um.ready(function() {
-	    		um.execCommand('cleardoc');
-		       	um.execCommand('insertHtml',HTMLDecode("<?php if(isset($row))echo $row['content'];?>"));
-		    });
-		    function HTMLDecode(text){
-				var temp = document.createElement("div");
-				temp.innerHTML = text;
-				var output = temp.innerText || temp.textContent;
-				temp = null;
-				return output;
-			}
-	    </script>
+    	<?php if ($className):?>
+	    	<h2>编辑文章</h2>
+	    	<a class="btn btn-primary" style="margin:20px 0;" href="./index.php/admin/passli">返回</a>
+	    	<div class="form-group">
+		    	<label for="title">标题</label>
+		    	<input type="text" class="form-control" id="title" placeholder="文章标题" value="<?php if(isset($row))echo $row['title'];?>">
+		  	</div>
+		  	<script id="container" name="content" type="text/plain"  style="width:100%;height:500px;">
+		  	</script>
+		  	<div id="post_page" class="btn btn-success pull-right" style="margin:20px 0;">发布文章</div>
+		     <!-- 配置文件 -->
+		    <script type="text/javascript" src="./public/ueditor/umeditor.config.js"></script>
+		    <!-- 编辑器源码文件 -->
+		    <script type="text/javascript" src="./public/ueditor/umeditor.js"></script>
+		    <script type="text/javascript">
+				var um = UM.getEditor('container');//实例化编辑器
+		    	um.ready(function() {
+		    		um.execCommand('cleardoc');
+			       	um.execCommand('insertHtml',HTMLDecode("<?php if(isset($row))echo $row['content'];?>"));
+			    });
+			    function HTMLDecode(text){
+					var temp = document.createElement("div");
+					temp.innerHTML = text;
+					var output = temp.innerText || temp.textContent;
+					temp = null;
+					return output;
+				}
+		    </script>
+	 	<?php else: ?>
+	    	<h2>请先在首页选择课程 <a href="./index.php/admin/index">首页</a></h2>
+	    <?php endif ?>
     </div><!-- /.container -->
 </body>
 </html>
