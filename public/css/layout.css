@@ -1,0 +1,87 @@
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}  
+ ol{margin:0; padding:0;border:0;}
+ *{
+ 	font-family: 'Helvetica Neue',Helvetica,Arial,'Hiragino Sans GB',
+ 	'Hiragino Sans GB W3','Microsoft YaHei UI','Microsoft YaHei',
+ 	'WenQuanYi Micro Hei',sans-serif;
+ }
+
+ #background{
+ 	position: absolute;
+ 	background: url(../images/bg.jpg);
+ 	height:100%;
+ 	width:100%;
+ }
+ #head{
+ 	position: relative;
+ 	height: 106px;
+ 	width:100%;
+ 	background: #fff;
+ }
+ #nav_top{
+ 	position: relative;
+ 	height:100%;
+ 	width:920px;
+ 	margin-left: 247px;
+ 	font-size: 0;
+ 
+
+
+ }
+ #nav_top .logo{
+ 	position: relative;
+ 	display: inline-block;
+ 	height:100%;
+ 	width:106px;
+ 	top:20px;
+ 	margin-left: 5px;
+ 	background: url(../images/eic.jpg);
+ 	background-repeat: no-repeat;
+
+ }
+ .nav_top_cell{
+ 	position: relative;
+ 	display: inline-block;
+ 	line-height: 106px;
+ 	vertical-align: top;
+ 	margin-left: 55px;
+ 	font-size: 18px;
+ 	cursor: pointer;
+ 
+ }
+ #body{
+ 	position: relative;
+ 	width:100%;
+ 	height:562px;
+ 	font-size: 0;
+ }
+ #nav_left{
+ 	position: relative;
+ 	display: inline-block;
+ 	height:100%;
+ 	width:247px;
+ 	vertical-align: top;
+
+ }
+ .nav_left_cell{
+ 	position: relative;
+ 	height:75px;
+ 	width:100%;
+ 	background: rgb(55,71,79);
+ 	font-size: 21px;
+ 	text-align: center;
+ 	line-height: 75px;
+ 	color:#fff;
+ 	cursor: pointer;
+ }
+ .cut-off{
+ 	border-top: 1px solid rgb(38,50,56);
+ 	border-bottom: 1px solid rgb(38,50,56);
+ }
+ #main{
+ 	position: relative;
+ 	display: inline-block;
+ 	height:100%;
+ 	width:910px;
+ 	background: rgba(255,255,255,0.6);
+ }

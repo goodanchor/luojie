@@ -1,141 +1,76 @@
 body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}  
  ol{margin:0; padding:0;border:0;}
+ #nav_left .sy{
+	background: rgb(0,188,212);
+	color:rgb(51,51,51);
+}
 
- #background{
- 	position: absolute;
- 	height:100%;
- 	width:100%;
- 	background: rgb(237,239,240);
- }
- #top{
- 	position: relative;
- 	height:60px;
- 	width:100%;
- 	background: #000;
- }
- #head{
- 	position: relative;
- 	height:100%;
- 	width:800px;
- 	left:50%;
- 	margin-left: -400px;
- 	/* background: #ddd; */
- 	font-size: 0;
- }
- .ei{
- 	float:right;
- }
- .nav{
- 	position: relative;
- 	display: inline-block;
- 	vertical-align: top;
- 	height:100%;
- 	width:650px;
- 
- }
- .nav_cell{
- 	display: inline-block;
-	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
-	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
-	line-height: 60px;
-	padding-left: 35px;
-	padding-right:35px;
-	color: #787d82;
- }
- .nav_cell:hover{
- 	background: rgb(54,60,65);
- 	cursor: pointer;
- 	color:#fff;
- }
- #main{
- 	position: relative;
-	height:540px;
-	width:800px;
-	background: #fff;
-	left:50%;
-	margin-left: -400px;
-	font-size: 0;
+#nav_top .xhykzzhsy{
+	color:rgb(0,140,212);
+}
 
- }
- .container{
- 	position: relative;
- 	height:100%;
- 	width:100%;
- }
- .announcement{
- 	position: relative;
- 	display: inline-block;
- 	height:300px;
- 	width:300px;
- 	background: #ccc;
- 	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- .introduce{
- 	position: relative;
- 	display: inline-block;
- 	height:300px;
- 	width:300px;
- 	background: #ccc;
- 	vertical-align: top;
- 	margin-left: 30px;
- 	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- /* .path{
- 	position: relative;
- 	line-height:30px;
- 	text-indent: 5em;
- 	width:50%;
- 	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- 	border-bottom: solid 1px #999;
- 
- }
- .title{
- 	position: relative;
- 	height:50px;
- 	width:100%;
- 	background: #ccc;
- 	line-height:50px;
- 	text-align: center;
- 	font: 20px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- .info{
- 	position: relative;
- 	height:40px;
- 	width:100%;
- 	line-height: 40px;
- background: #e50;
- 	text-align: center;
- 	font: 15px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- .author{
- 	position: relative;
- 	display: inline-block;
- 	font: 15px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- .launchTime{
- 	position: relative;
- 	display: inline-block;
- }
- .display{
- 	position: relative;
- 	display: inline-block;
- }
- .mainBody{
- 	position: relative;
- 	padding:20px;
- 	height:428px;
- 	width:100%;
- 	background: #641;
- 	font: 13px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- 	 text-indent: 2em;
- 	 word-wrap: break-word; 
- 	word-break: normal; 
- 	overflow: auto;
- } */
+.announcement{
+	position: relative;
+	height:250px;
+	width:100%;
+}
+.announcement .title{
+	position: relative;
+	color:rgb(102,102,102);
+	font-size: 28px;
+	margin-left:45px;
+	top: 20px;
+	height:40px;
+	width:58px;
+	border-bottom: 3px solid rgb(0,188,212);
+}
+.announcement .box{
+	position: relative;
+	display: inline-block;
+	margin-top:35px;
+	height:150px;
+	width:47%;
+	vertical-align: top;
+}
+.position_a{
+	margin-left: 25px;
+	border-right:1px solid #888;
+}
+.announcement .cell{
+	height:30px;
+	width:100%;
+	color:rgb(51,51,51);
+	font-size: 15px;
+	margin-left: 20px;
+}
+.announcement .time{
+	float:right;
+	color:rgb(0,188,212);
+	margin-right: 40px;
+}
+.introduction{
+	position: relative;
+	height:311px;
+	width:100%;
+}
+.introduction .title{
+	position: relative;
+	color:rgb(102,102,102);
+	font-size: 28px;
+	margin-left:45px;
+	top: 50px;
+	border-bottom: 3px solid rgb(0,188,212);
+	width:58px;
+}
+
+.introduction .box{
+	position: relative;
+	height:220px;
+	width:95%;
+	top:50px;
+	color:#000;
+	font-size: 14px;
+	text-indent: 2em;
+	margin-left: 45px;
+
+}

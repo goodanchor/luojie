@@ -1,223 +1,73 @@
 body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}  
  ol{margin:0; padding:0;border:0;}
+#nav_left .wjxz{
+	background: rgb(0,188,212);
+	color:rgb(51,51,51);
+}
 
- #background{
- 	position: absolute;
- 	height:100%;
- 	width:100%;
- 	/* background: rgb(237,239,240); */
- }
- #top{
- 	position: relative;
- 	height:60px;
- 	width:100%;
- 	background: #000;
- }
- #head{
- 	position: relative;
- 	height:100%;
- 	width:800px;
- 	left:50%;
- 	margin-left: -400px;
- 	/* background: #ddd; */
- 	font-size: 0;
- }
- .ei{
- 	float:right;
- }
- .nav{
- 	position: relative;
- 	display: inline-block;
- 	vertical-align: top;
- 	height:100%;
- 	width:650px;
- 
- }
- .nav_cell{
- 	display: inline-block;
-	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
-	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
-	line-height: 60px;
-	padding-left: 35px;
-	padding-right:35px;
-	color: #787d82;
- }
- .nav_cell:hover{
- 	background: rgb(54,60,65);
- 	cursor: pointer;
- 	color:#fff;
- }
- #main{
- 	position: relative;
-	height:540px;
-	width:800px;
-	background: #fff;
-	left:50%;
-	margin-left: -400px;
-	font-size: 0;
-
- }
- .info{
- 	position: relative;
- 	margin-top: 20px;
- 	width:100%;
- 	height:20px;
- 	/* background: #258; */
-
- }
- .info>div{
-	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- 	display: inline-block;
- 	background: rgb(135,135,135);
- 	color: rgb(200,200,200);
- 	
- }
- .info .wj{
- 	padding-left:20px;
- 	padding-right: 20px;
- }
- .info .download{
- 	float: right;
- 	margin-left: 60px;
- 	width:80px;
- 	height:20px;
- }
- .info .sj{
- 	float:right;
- 	padding-left:20px;
- 	padding-right: 20px;
- 	margin-left: 60px;
- }
- .info .scz{
- 	float:right;
- 	padding-left:20px;
- 	padding-right: 20px;
- }
- .list{
- 	position: relative;
- 	margin-bottom: 10px;
- 	height:40px;
- 	line-height: 40px;
- 	width:100%;
- 	background: rgb(237,239,240);
- 	border:1px solid rgb(201,201,201);
- 	font: 16px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- .list .wj{
- 	display: inline-block;
- 	margin-top: 10px;
- }
- .list .scz{
- 	float:right;
- 	display: inline-block;
-	margin-top: 10px;
- }
- .list .sj{
- 	float:right;
- 	display: inline-block;
- 	margin-left:60px;
- 	margin-top: 10px;
- }
- .download_btn{
- 	position: relative;
-	display: inline-block;
-	float:right;
-	height:25px;
-	width:60px;
-	margin-top: 10px;
-	margin-left: 60px;
-	margin-right: 20px;
-	border-style:none;
-	font: 13px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- 	 background: rgb(209,217,224);
- 	 border:1px solid rgb(136,173,166);
- 	 outline: none;
-
- }
- .download_btn:hover{
- 	background: rgb(211,224,243);
- }
-.page{
+#nav_top .xhykzzhsy{
+	color:rgb(0,140,212);
+}
+#main .box{
+	position: relative;
+	height:530px;
+	width:750px;
+	margin-left: 80px;
+	margin-top: 30px;
+}
+#main .title{
 	position: relative;
 	height:30px;
-	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+	width:100%;
+	border-bottom: 1px solid rgb(153,153,153);
 }
-#download_page{
-	display: none;
-	width:200px;
-	height:150px;
-	position: fixed;
-	top:200px;
-	left:50%;
-	margin-left:-110px;
-	background: #999;
-	padding:10px;
+#main .info{
+	position: relative;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	color:rgb(153,153,153);
+
 }
-#download_page *{
-	float:left;
-	margin:5px 20px;
+#main .wj{
+	width:450px;
+	height:100%;
+
 }
- /* .container{
- 	position: relative;
- 	height:100%;
- 	width:100%;
- }
- .path{
- 	position: relative;
- 	line-height:30px;
- 	text-indent: 5em;
- 	width:50%;
- 	font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- 	border-bottom: solid 1px #999;
- 
- }
- .title{
- 	position: relative;
- 	height:50px;
- 	width:100%;
- 	line-height:50px;
- 	text-align: center;
- 	font: 20px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- .info{
- 	position: relative;
- 	height:40px;
- 	width:100%;
- 	line-height: 40px;
- 	text-align: center;
- 	font: 15px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- .author{
- 	position: relative;
- 	display: inline-block;
- 	font: 15px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- }
- .launchTime{
- 	position: relative;
- 	display: inline-block;
- }
- .display{
- 	position: relative;
- 	display: inline-block;
- }
- .mainBody{
- 	position: relative;
- 	padding:20px;
- 	height:428px;
- 	width:auto;
- 	background: #641;
- 	font: 13px "Microsoft Yahei", "Hiragino Sans GB", Helvetica,
- 	 "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
- 	 text-indent: 2em;
- 	 word-wrap: break-word; 
- 	word-break: normal; 
- 	overflow: auto;
- } */
+#main .scz{
+	width:80px;
+	height:100%;
+
+}
+#main .sj{
+	width:130px;
+	height:100%;
+	
+}
+#main .xz{
+	height:100%;
+	width:90px;
+	
+}
+#main .file{
+	position: relative;
+	height:30px;
+	width:100%;
+}
+#main .file >div{
+	color:rgb(51,51,51);
+}
+#main .file .download{
+	position: relative;
+	height:23px;
+	width:70px;
+	background: rgb(55,71,79);
+	font-size: 12px;
+	margin-left: 20px; 
+	line-height: 23px;
+	color:#fff;
+	border-radius:3px;
+	cursor: pointer;
+
+}

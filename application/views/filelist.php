@@ -5,6 +5,7 @@
 <base href="<?php echo base_url();?>"/>
 <script type="text/javascript"> window.URL = "<?php echo base_url();?>";</script>
 <link href="./public/css/file-list.css" rel="stylesheet" type="text/css" />
+<link href="./public/css/layout.css" rel="stylesheet" type="text/css" />
 
 <script src="./public/js/jquery-1.11.2.min.js" ></script>
 
@@ -17,25 +18,50 @@
  
 <body>
 	<div id="background">
-		<div id="top">
-			<div id="head">
-				<img src="./public/images/hust.png" alt="hust" height="60px" width="84.4px" display="inline-block">
-				<img src="./public/images/ei.png" alt="ei" class="ei" height="60px" width="65.5px">
-				<div class="nav">
-					<a class="nav_cell" href="./index.php/show/index">首页</a>
-					<a class="nav_cell" href="./index.php/show/articlelist">文章</a>
-					<a class="nav_cell" href="./index.php/show/files">文件下载</a>
-				</div>
+	<div id="head">
+	<div id="nav_top">
+		<div class="logo"></div>
+		<div class="nav_top_cell xhykzzhsy">信号与控制综合实验</div>
+		<div class="nav_top_cell szdlyljsj">数字电路与逻辑设计</div>
+		<div class="nav_top_cell wjylyjkjs">微机原理与接口技术</div>
+		<div class="nav_top_cell qrsxt">嵌入式系统</div>
+	</div>
+</div>
+<div id="body">
+	<div id="nav_left">
+		<div class="nav_left_cell sy">首页</div>
+		<div class="nav_left_cell cut-off wz">文章</div>
+		<div class="nav_left_cell wjxz">文件下载</div>
+	</div>
+	<div id="main">
+		<div class="box">
+			<div class="title">
+				<div class="info wj">文件</div>
+				<div class="info scz">上传者</div>
+				<div class="info sj">时间</div>
+				<div class="info xz">下载</div>
+			</div>
+			<div class="file">
+				<div class="info wj">chapter 1.ppt</div>
+				<div class="info scz">admin</div>
+				<div class="info sj">2015-02-26</div>
+				<div class="info download">下载</div>
+			</div>
+			<div class="file">
+				<div class="info wj">chapter 2.ppt</div>
+				<div class="info scz">admin</div>
+				<div class="info sj">2015-02-26</div>
+				<div class="info download">下载</div>
+			</div>
+			<div class="file">
+				<div class="info wj">chapter 3.ppt</div>
+				<div class="info scz">admin</div>
+				<div class="info sj">2015-02-26</div>
+				<div class="info download">下载</div>
 			</div>
 		</div>
-		<div id="main">
-			<div class="info">
-				<div class="wj">文件</div>
-				<div class="download">下载</div>
-				<div class="sj">时间</div>
-				<div class="scz">上传者</div>
-
-			</div>
+	</div>
+	
 <?php 
 	if($status){
 		foreach($rows as $row){
@@ -51,17 +77,7 @@
 		echo '<div class="list">no files</div>';
 	}
 ?>
-			<div class="list"></div>
-			<div class="list"></div>
-			<div class="list"></div>
-			<div class="list"></div>
-			<div class="list"></div>
-			<div class="list"></div>
-			<div class="list"></div>
-			<div class="list"></div>
-			<div class="list"></div>
-			<div class="page">1 2 3 </div>
-		</div>
+			
 	</div>
 	<form id="download_page" action='index.php/files/download' method='post'>
 		<img src="./index.php/show/captcha">
