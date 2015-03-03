@@ -44,13 +44,13 @@ class Passage_Model extends CI_Model
         return FALSE;
     }
 
-    function count_all($cases)
+    function count_all($cases=NULL)
     {
         $query = $this->db->get_where('passage',array('cases'=>$cases));
         return $query->num_rows;
     }
 
-    function fetch_all($limit=NULL,$perpage=NULL,$cases)
+    function fetch_all($limit=NULL,$perpage=NULL,$cases=NULL)
     {
         $this->db->select('passage.passageid,passage.title,passage.time,passage.userid,user.name');
         $this->db->from('passage');

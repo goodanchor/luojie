@@ -25,17 +25,18 @@ class Files_Model extends CI_Model
             return FALSE;       
     }
 
-     function count_all($cases)
+     function count_all($cases=NULL)
     {
         $query = $this->db->get_where('upload',array('cases'=>$cases));
         return $query->num_rows;
     }
 
-    function fetch_all($limit=NULL,$perpage=NULL,$cases)
+    function fetch_all($limit=NULL,$perpage=NULL,$cases=NULL)
     {
         $this->db->select('upload.*,user.name');
         $this->db->from('upload');
-        $this->db->where('cases',$cases);
+        if($cases)
+            $this->db->where('cases',$cases);
         $this->db->join('user','user.userid=upload.userid');
         $this->db->order_by('uploadtime','desc');
         $this->db->limit($perpage,$limit);

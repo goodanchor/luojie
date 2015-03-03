@@ -46,13 +46,13 @@ class Notice_Model extends CI_Model
         return FALSE;
     }
 
-    function count_all($cases)
+    function count_all($cases=NULL)
     {
         $query = $this->db->get_where('notice',array('cases'=>$cases));
         return $query->num_rows;
     }
 
-    function fetch_all($limit=NULL,$perpage=NULL,$cases)
+    function fetch_all($limit=NULL,$perpage=NULL,$cases=NULL)
     {
         $this->db->select('notice.noticeid,notice.title,notice.time,notice.userid,user.name');
         $this->db->from('notice');
