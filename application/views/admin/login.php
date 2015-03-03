@@ -37,6 +37,7 @@
 		    	<label for="password">密码</label>
 		    	<input type="password" class="form-control" id="password" placeholder="密码">
 		 	</div>
+		 	<?php if(isset($err)) echo "<span>用户名或密码错误</span>";?>
 		  	<button type="submit" class="btn btn-default" id="login">登录</button>
 		</form>
 	</div>

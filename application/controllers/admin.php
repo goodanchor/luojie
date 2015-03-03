@@ -24,8 +24,8 @@ class Admin extends CI_Controller
         
         $session = $this->session->all_userdata();
         $data['class'] =  isset($session['class'])?$session['class']:0;
-        // if(!isset($session['class']))
-        //     $this->session->set_userdata(array('class'=>1));
+        if(!isset($session['class']))
+             $this->session->set_userdata(array('class'=>0));
         if(isset($session['old']))
             $data['count'] = $this->count_model->showcount();
         else {
@@ -56,7 +56,7 @@ class Admin extends CI_Controller
         }
         else 
         {   
-            if( $class != 0 && ($this->session->userdata('power') != $class) AND ($this->session->userdata('power') != 0) )
+            if( ($this->session->userdata('power') != $class) AND ($this->session->userdata('power') != 0) )
             {
                 $this->session->set_userdata(array('class'=>0));
                 $res['status'] = 0;

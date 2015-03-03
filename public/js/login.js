@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	$("#login").click(function(){
+	$("#login").click(function(event){
+		event.preventDefault();
 		var username = $("#username").val();
 		var password = $("#password").val();
 		if(!username || !password){

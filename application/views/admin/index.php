@@ -66,7 +66,7 @@ if(isset($class)){
     <div class="container">
     	<?php
     	if($className){
-    		echo "<h2>当前课程 ：".$className."<br><div class='btn btn-warning classLink' data-class='0'>返回课程选择</div>";
+    		echo "<h2>当前课程 ：".$className."<br><div class='btn btn-warning classLink' data-class=''>返回课程选择</div>";
     	}else{
     		echo "<h2>选择课程</h2>
 		    	<div class='btn btn-primary classLink' data-class='1'>信号与控制综合实验</div>
@@ -117,7 +117,7 @@ if(isset($class)){
 	    			dataType : 'json',
 	    			success : function(res){
 		    			if(res.status)
-		    				window.location.reload();
+		    				window.location.href = URL + "index.php/admin/index";
 		    			else
 		    				alert(res.msg);
 		    		},
