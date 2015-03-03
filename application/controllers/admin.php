@@ -23,9 +23,9 @@ class Admin extends CI_Controller
     {
         
         $session = $this->session->all_userdata();
-        //$data['class'] =  isset($session['class'])?$session['class']:0;
-        if(!isset($session['class']))
-            $this->session->set_userdata(array('class'=>1));
+        $data['class'] =  isset($session['class'])?$session['class']:0;
+        // if(!isset($session['class']))
+        //     $this->session->set_userdata(array('class'=>1));
         if(isset($session['old']))
             $data['count'] = $this->count_model->showcount();
         else {
@@ -47,20 +47,20 @@ class Admin extends CI_Controller
 
    function setclass()
     {
-        $class = 1  ;//(int)$this->input->get('class');
-        if(!in_array($class, array(1,2,3,4)))
+        $class = (int)$this->input->get('class');
+        if(!in_array($class, array(0,1,2,3,4)))
         {
             $this->session->set_userdata(array('class'=>0));
             $res['status'] = 0;
-            $res['msg'] = 'CLASS NOT FOUND';
+            $res['msg'] = '课程未找到';
         }
         else 
         {   
-            if( ($this->session->userdata('power') != $class) AND ($this->session->userdata('power') != 0) )
+            if( $class != 0 && ($this->session->userdata('power') != $class) AND ($this->session->userdata('power') != 0) )
             {
                 $this->session->set_userdata(array('class'=>0));
                 $res['status'] = 0;
-                $res['msg'] ='YOU HAVE NO ACCESS';
+                $res['msg'] ='您无权管理该课程';
             }
             else
             {
@@ -69,8 +69,7 @@ class Admin extends CI_Controller
                 $res['msg'] = 'SUCCESS';
             }
         }
-        print_r($res);
-        //echo json_encode($res);
+        echo json_encode($res);
     }
     
 

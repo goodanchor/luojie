@@ -66,13 +66,13 @@ if(isset($class)){
     <div class="container">
     	<?php
     	if($className){
-    		echo "<h2>当前课程 ：".$className;
+    		echo "<h2>当前课程 ：".$className."<br><div class='btn btn-warning classLink' data-class='0'>返回课程选择</div>";
     	}else{
     		echo "<h2>选择课程</h2>
-		    	<a class='btn btn-primary' href=''>信号与控制综合实验</a>
-		    	<a class='btn btn-primary' href=''>数字电路与逻辑设计</a>
-		    	<a class='btn btn-primary' href=''>微机原理与接口技术</a>
-		    	<a class='btn btn-primary' href=''>嵌入式系统</a>";
+		    	<div class='btn btn-primary classLink' data-class='1'>信号与控制综合实验</div>
+		    	<div class='btn btn-primary classLink' data-class='2'>数字电路与逻辑设计</div>
+		    	<div class='btn btn-primary classLink' data-class='3'>微机原理与接口技术</div>
+		    	<div class='btn btn-primary classLink' data-class='4'>嵌入式系统</div>";
 		}
 		?>
     	<h2>网站概况</h2>
@@ -107,6 +107,26 @@ if(isset($class)){
 	        ?>
 	    </tbody>
 	    </table>
+	    <script type="text/javascript">
+	    	$(".classLink").click(function(){
+	    		var classId = $(this).data().class;
+	    		$.ajax({
+	    			type : 'get',
+	    			url :URL + "index.php/admin/setclass",
+	    			data : {class:classId},
+	    			dataType : 'json',
+	    			success : function(res){
+		    			if(res.status)
+		    				window.location.reload();
+		    			else
+		    				alert(res.msg);
+		    		},
+		    		error : function(res){
+		    			console.log(res);
+		    		}
+	    		});
+	    	});
+	    </script>
     </div><!-- /.container -->
 </body>
 </html>
