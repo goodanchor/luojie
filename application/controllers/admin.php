@@ -25,7 +25,7 @@ class Admin extends CI_Controller
         $session = $this->session->all_userdata();
         //$data['class'] =  isset($session['class'])?$session['class']:0;
         if(!isset($session['class']))
-            $this->session->set_userdata(array('class'=>0));
+            $this->session->set_userdata(array('class'=>1));
         if(isset($session['old']))
             $data['count'] = $this->count_model->showcount();
         else {
@@ -36,6 +36,7 @@ class Admin extends CI_Controller
             $data['session'] = $session;
             $data['rows'] = $this->admin_model->fetch_all();
             $data['class'] = $this->session->userdata('class');
+            //print_r ($data['class']);
             $this->load->view('./admin/index',$data);
               
         }
@@ -111,7 +112,7 @@ class Admin extends CI_Controller
     }
 
 
-   function upload()
+   function upload($limit=0)
     {
         $session = $this->session->all_userdata();
         if(!isset($session['userid'])){
@@ -119,8 +120,22 @@ class Admin extends CI_Controller
             $res['msg'] = '您无权进行此操作';
         }
         else
-        {
-            $rows = $this->files_model->fetch_all();
+        {   
+             //pagination
+            $config['base_url'] = base_url().'index.php/admin/passli';
+            $config['total_rows'] = $this->files_model->count_all($session['class']);
+            //$config['first_url'] = base_url().'index.php/admin/upload/0';
+            $config['per_page'] = 2;
+            $config['num_links'] = 3;
+            $config['full_tag_open'] = '<p>';
+            $config['full_tag_close'] = '</p>'; 
+            $this->pagination->initialize($config);
+
+            $limit = (int)$limit;
+            if($limit<0 OR $limit>=$config['total_rows'])
+                $limit = 0;
+
+            $rows = $this->files_model->fetch_all($limit,$config['per_page'],$session['class']);
             $data['rows'] = $rows;
             $data['class'] = $session['class'];
             $this->load->view('./admin/upload',$data);
@@ -138,7 +153,7 @@ class Admin extends CI_Controller
         {   
             //pagination
             $config['base_url'] = base_url().'index.php/admin/passli';
-            $config['total_rows'] = $this->passage_model->count_all();;
+            $config['total_rows'] = $this->passage_model->count_all($session['class']);;
             //$config['first_url'] = base_url().'index.php/admin/passli/0';
             $config['per_page'] = 2;
             $config['num_links'] = 3;
@@ -149,7 +164,7 @@ class Admin extends CI_Controller
             $limit = (int)$limit;
             if($limit<0 OR $limit>=$config['total_rows'])
                 $limit = 0;
-            $rows = $this->passage_model->fetch_all($limit,$config['per_page']);
+            $rows = $this->passage_model->fetch_all($limit,$config['per_page'],$session['class']);
             $data['rows'] = $rows;
             $data['class'] = $session['class'];
             $this->load->view('./admin/page_list',$data);
@@ -166,7 +181,7 @@ class Admin extends CI_Controller
         else
         {  
             $config['base_url'] = base_url().'index.php/admin/notice';
-            $config['total_rows'] = $this->notice_model->count_all();
+            $config['total_rows'] = $this->notice_model->count_all($session['class']);
             $config['per_page'] = 2;
             $config['num_links'] = 3;
             $config['full_tag_open'] = '<p>';
@@ -177,7 +192,7 @@ class Admin extends CI_Controller
             if($limit<0 OR $limit>=$config['total_rows'])
                 $limit = 0; 
 
-            $rows = $this->notice_model->fetch_all($limit,$config['per_page']);
+            $rows = $this->notice_model->fetch_all($limit,$config['per_page'],$session['class']);
             $data['rows'] = $rows;
             $data['class'] = $session['class'];
             $this->load->view('./admin/news_list',$data);

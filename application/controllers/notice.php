@@ -15,8 +15,9 @@ class Notice extends CI_Controller
             $res['status'] = 0 ;
         }
         else {
+            $data['class'] = $session['class']; 
             if($pid==0)
-                $this->load->view('./admin/edit_news');
+                $this->load->view('./admin/edit_news',$data);
             else{
                 $row = $this->notice_model->fetch_one($pid);
                     // print_r($row);

@@ -106,6 +106,7 @@ if(isset($class)){
 		        ?>
 		    </tbody>
 		    </table>
+		     <?php echo $this->pagination->create_links()?>
 	    <?php else: ?>
 	    	<h2>请先在首页选择课程 <a href="./index.php/admin/index">首页</a></h2>
 	    <?php endif ?>

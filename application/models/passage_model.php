@@ -12,6 +12,7 @@ class Passage_Model extends CI_Model
     {
         $arr['title'] = $post['title']; 
         $arr['userid'] = $this->session->userdata('userid');
+        $arr['cases'] = $this->session->userdata('class');
         $arr['content'] = htmlspecialchars($post['content']);
         $arr['time'] = time();
 
@@ -43,16 +44,17 @@ class Passage_Model extends CI_Model
         return FALSE;
     }
 
-    function count_all()
+    function count_all($cases)
     {
-        $query = $this->db->get('passage');
+        $query = $this->db->get_where('passage',array('cases'=>$cases));
         return $query->num_rows;
     }
 
-    function fetch_all($limit=NULL,$perpage=NULL)
+    function fetch_all($limit=NULL,$perpage=NULL,$cases)
     {
         $this->db->select('passage.passageid,passage.title,passage.time,passage.userid,user.name');
         $this->db->from('passage');
+        $this->db->where('cases',$cases);
         $this->db->join('user','user.userid=passage.userid');
         $this->db->limit($perpage,$limit);
 

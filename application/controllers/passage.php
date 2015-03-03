@@ -15,8 +15,9 @@ class Passage extends CI_Controller
             $res['status'] = 0 ;
         }
         else {
+            $data['class'] = $session['class'];
             if($pid==0)
-                $this->load->view('./admin/edit_page');
+                $this->load->view('./admin/edit_page',$data);
             else{
                 $row = $this->passage_model->fetch_one($pid);
                 $data['row'] = $row;

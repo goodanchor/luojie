@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 class Files_Model extends CI_Model
 {
@@ -13,6 +13,7 @@ class Files_Model extends CI_Model
     function upload($post,$filename,$fileaddress)
     {
         $arr['userid'] = $this->session->userdata('userid');
+        $arr['cases'] = $this->session->userdata('class');
         $arr['filename'] = $filename;
         $arr['fileaddress'] = $fileaddress;
         $arr['uploadtime'] = time();
@@ -24,14 +25,22 @@ class Files_Model extends CI_Model
             return FALSE;       
     }
 
+     function count_all($cases)
+    {
+        $query = $this->db->get_where('upload',array('cases'=>$cases));
+        return $query->num_rows;
+    }
 
-    function fetch_all()
+    function fetch_all($limit=NULL,$perpage=NULL,$cases)
     {
         $this->db->select('upload.*,user.name');
         $this->db->from('upload');
+        $this->db->where('cases',$cases);
         $this->db->join('user','user.userid=upload.userid');
         $this->db->order_by('uploadtime','desc');
+        $this->db->limit($perpage,$limit);
         $query = $this->db->get();
+
 
         if($rows = $query->result_array()){
             return $rows;

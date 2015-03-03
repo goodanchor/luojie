@@ -15,6 +15,7 @@ class Notice_Model extends CI_Model
         $arr = $post;
         $arr['content'] = htmlspecialchars($post['content']);
         $arr['userid'] = $this->session->userdata('userid');
+        $arr['cases'] = $this->session->userdata('class');
         $arr['time'] = time();
 
         if($this->db->insert('notice',$arr)){
@@ -45,16 +46,17 @@ class Notice_Model extends CI_Model
         return FALSE;
     }
 
-    function count_all()
+    function count_all($cases)
     {
-        $query = $this->db->get('notice');
+        $query = $this->db->get_where('notice',array('cases'=>$cases));
         return $query->num_rows;
     }
 
-    function fetch_all($limit=NULL,$perpage=NULL)
+    function fetch_all($limit=NULL,$perpage=NULL,$cases)
     {
         $this->db->select('notice.noticeid,notice.title,notice.time,notice.userid,user.name');
         $this->db->from('notice');
+        $this->db->where('cases',$cases);
         $this->db->join('user','user.userid=notice.userid');
         $this->db->order_by('time','desc');
         $this->db->limit($perpage,$limit);
