@@ -7,13 +7,33 @@
 <link href="./public/css/homepage.css" rel="stylesheet" type="text/css" />
 <link href="./public/css/layout.css" rel="stylesheet" type="text/css" />
 
-<script src="./public/js/homepage.js" ></script>
+
 <script src="./public/js/jquery-1.11.2.min.js" ></script>
+<script src="./public/js/base.js" ></script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 
-
-<!-- 你最好检查一下这两行 -->
+<?php
+	$class = isset($class)?$class:1;
+	switch ($class) {
+		case '1':
+			$classCode = "xhykzzhsy";
+			break;
+		case '2':
+			$classCode = "szdlyljsj";
+			break;
+		case '3':
+			$classCode = "wjylyjkjs";
+			break;
+		case '4':
+			$classCode = "qrsxt";
+			break;
+		
+		default:
+			
+			break;
+	}
+?>
 
 </head>
 
@@ -23,28 +43,41 @@
 <div id="head">
 	<div id="nav_top">
 		<div class="logo"></div>
-		<div class="nav_top_cell xhykzzhsy">信号与控制综合实验</div>
-		<div class="nav_top_cell szdlyljsj">数字电路与逻辑设计</div>
-		<div class="nav_top_cell wjylyjkjs">微机原理与接口技术</div>
-		<div class="nav_top_cell qrsxt">嵌入式系统</div>
+		<a class="nav_top_cell <?php if($class == 1) echo 'active';?>" data-class="1" href="./index.php/show/index/xhykzzhsy">信号与控制综合实验</a>
+		<a class="nav_top_cell <?php if($class == 2) echo 'active';?>" data-class="2" href="./index.php/show/index/szdlyljsj">数字电路与逻辑设计</a>
+		<a class="nav_top_cell <?php if($class == 3) echo 'active';?>" data-class="3" href="./index.php/show/index/wjylyjkjs">微机原理与接口技术</a>
+		<a class="nav_top_cell <?php if($class == 4) echo 'active';?>" data-class="4" href="./index.php/show/index/qrsxt">嵌入式系统</a>
 	</div>
 </div>
 <div id="body">
 	<div id="nav_left">
-		<div class="nav_left_cell sy">首页</div>
-		<div class="nav_left_cell cut-off wz">文章</div>
-		<div class="nav_left_cell wjxz">文件下载</div>
+		<a class="nav_left_cell sy" href="./index.php/show/index/<?php echo $classCode;?>">首页</a>
+		<a class="nav_left_cell cut-off wz" href="./index.php/show/articlelist/<?php echo $classCode;?>">文章</a>
+		<a class="nav_left_cell wjxz" href="./index.php/show/files/<?php echo $classCode;?>">文件下载</a>
 	</div>
 	<div id="main">
 		<div class="announcement">
 			<div class="title">公告</div>
 			<div class="box position_a">
-				<div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div>
-				<div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div>
+				<?php
+				if($status){
+					for($i = 0; $i < 5 && $i < count($rows); $i++){
+						echo '<a class="cell" href="./index.php/show/news/'.$rows[$i]['id'].'">'.$rows[$i]['title'].'<div class="time">'.date('Y-m-d',$row['time']).'</div></a>';
+					}
+				}
+				?>
 			</div>
 			<div class="box">
-				<div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div>
-				<div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div>
+				<?php
+				if($status){
+					for($i = 5; $i < 10 && $i < count($rows); $i++){
+						echo '<div class="cell">'.$rows[$i]['title'].'<div class="time">'.date('Y-m-d',$row['time']).'</div></div>';
+					}
+				}
+				?>
+				<div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div><div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div><div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div>
+				<div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div><div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div>
+				<div class="cell" ><a class="more" href="./index.php/show/newslist">更多公告</a></div>
 			</div>
 		</div>
 		<div class="introduction">

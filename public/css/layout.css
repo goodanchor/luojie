@@ -50,8 +50,13 @@ html,body{
  	vertical-align: top;
  	margin-left: 55px;
  	font-size: 18px;
+ 	color:#000;
+ 	text-decoration: none;
  	cursor: pointer;
+ }
  
+ .active{
+	color:rgb(0,140,212);
  }
  #body{
  	position: relative;
@@ -68,6 +73,7 @@ html,body{
 
  }
  .nav_left_cell{
+ 	display: block;
  	position: relative;
  	height:75px;
  	width:100%;
@@ -77,6 +83,7 @@ html,body{
  	line-height: 75px;
  	color:#fff;
  	cursor: pointer;
+ 	text-decoration: none;
  }
  .cut-off{
  	border-top: 1px solid rgb(38,50,56);
