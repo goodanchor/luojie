@@ -39,7 +39,7 @@ class Show extends CI_Controller {
             $data['count'] = $this->count_model->count();
             $this->session->set_userdata(array('old'=>1));
         }
-        if($rows = $this->notice_model->fetch_all()){
+        if($rows = $this->notice_model->fetch_all(0,5,$class)){
             $data['status'] = 1;
             $data['rows'] = $rows;
         }
@@ -51,7 +51,7 @@ class Show extends CI_Controller {
     }
 
 
-    function news($class='xhykzzhsy',$pid=0)
+    function news($class='xhykzzhsy',$pid=1)
     {
         $pid = (int)$pid;
         if($row = $this->notice_model->fetch_one($pid))
@@ -135,7 +135,7 @@ class Show extends CI_Controller {
     }
 
 
-    function article($class='xhykzzhsy',$pid=0)
+    function article($class='xhykzzhsy',$pid=1)
     {
         $pid = (int)$pid;
         if($row = $this->passage_model->fetch_one($pid))
@@ -219,7 +219,6 @@ class Show extends CI_Controller {
             $data['status'] = 0;
             $data['rows'] = array();
         }
-        //print_r($data);
         $data['class'] = $class;
         $this->load->view('articlelist',$data);
     }
