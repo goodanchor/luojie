@@ -42,7 +42,7 @@ if(isset($class)){
 	<script src="./public/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="" />
 </head>
-<body style="background:url(./public/images/bg.jpg)">
+<body style="background:url(./public/images/bg_admin.jpg)">
      	<nav class="navbar navbar-inverse">
      	<div class="container">
 	        <div class="navbar-header">
