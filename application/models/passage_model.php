@@ -57,6 +57,7 @@ class Passage_Model extends CI_Model
         $this->db->where('cases',$cases);
         $this->db->join('user','user.userid=passage.userid');
         $this->db->limit($perpage,$limit);
+        $this->db->order_by('time','desc');
 
         $query = $this->db->get();
 
