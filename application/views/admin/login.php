@@ -19,7 +19,7 @@
 	<script src="./public/js/login.js"></script>
 	<link rel="shortcut icon" href="" />
 </head>
-<body style="background:url(./public/images/bg.jpg)">
+<body style="background:url(./public/images/bg_admin.jpg)">
 	<div class="navbar navbar-inverse" role="navigation">
 	  <div class="container">
         <div class="navbar-header">

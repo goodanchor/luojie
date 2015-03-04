@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>文件列表</title>
 <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 <base href="<?php echo base_url();?>"/>
 <script type="text/javascript"> window.URL = "<?php echo base_url();?>";</script>
@@ -50,9 +51,10 @@
 		</div>
 		<div id="body">
 			<div id="nav_left">
-				<a class="nav_left_cell sy" href="./index.php/show/index/<?php echo $classCode;?>">首页</a>
-				<a class="nav_left_cell cut-off wz" href="./index.php/show/articlelist/<?php echo $classCode;?>">文章</a>
-				<a class="nav_left_cell wjxz" href="./index.php/show/files/<?php echo $classCode;?>">文件下载</a>
+				<a class="nav_left_cell" href="./index.php/show/index/<?php echo $classCode;?>">首页</a>
+				<a class="nav_left_cell cut-off" href="./index.php/show/articlelist/<?php echo $classCode;?>">课程文章</a>
+				<a class="nav_left_cell cut-off active_left" href="./index.php/show/files/<?php echo $classCode;?>">文件下载</a>
+				<a class="nav_left_cell" href="./index.php/show/newslist/<?php echo $classCode;?>">课程公告</a>
 			</div>
 			<div id="main">
 				<div class="box">

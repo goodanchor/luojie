@@ -31,7 +31,7 @@ $(document).ready(function(){
 			success:function(res){
 				if(res.status){
 					alert("发布成功")
-					//window.location.href = URL + "index.php/admin/passli";
+					window.location.href = URL + "index.php/admin/passli";
 				}else{
 					alert(res.msg);
 				}

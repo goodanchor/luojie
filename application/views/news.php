@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>文章列表</title>
+	<title>公告详情</title>
 <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 <base href = "<?php echo base_url();?>"/>
 <script type="text/javascript"> window.URL = "<?php echo base_url();?>"; </script>
-<link href="./public/css/article-list.css" rel="stylesheet" type="text/css" />
+<link href="./public/css/article.css" rel="stylesheet" type="text/css" />
 <link href="./public/css/layout.css" rel="stylesheet" type="text/css" />
 
 
@@ -53,36 +53,38 @@
 <div id="body">
 	<div id="nav_left">
 		<a class="nav_left_cell" href="./index.php/show/index/<?php echo $classCode;?>">首页</a>
-		<a class="nav_left_cell cut-off active_left" href="./index.php/show/articlelist/<?php echo $classCode;?>">课程文章</a>
+		<a class="nav_left_cell cut-off" href="./index.php/show/articlelist/<?php echo $classCode;?>">课程文章</a>
 		<a class="nav_left_cell cut-off" href="./index.php/show/files/<?php echo $classCode;?>">文件下载</a>
-		<a class="nav_left_cell" href="./index.php/show/newslist/<?php echo $classCode;?>">课程公告</a>
+		<a class="nav_left_cell active_left" href="./index.php/show/newslist/<?php echo $classCode;?>">课程公告</a>
 	</div>
 	<div id="main">
-		<div class="box">
-			<div class="title">
-				<div class="info bt">标题</div>
-				<div class="info zz">作者</div>
-				<div class="info sj">时间</div>
-			</div>
-			<a class="file" href="./index.php/show/article">
-				<div class="info bt black">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
-				<div class="info zz black">aa</div>
-				<div class="info sj blue">2015-02-03</div>
-			</a>
-		</div>
+	<?php
+	if(!$status){
+		echo "<div class='title'>$msg</div>";
+	}else{
+		echo "<div class='title'>".$row['title']."</div>
+		<div class='zz'>作者：".$row['name']."</div>
+		<div class='sj'>时间：".date('Y-m-d',$row['time'])."</div>
+		<div class='box'>".htmlspecialchars_decode($row['content'])."</div>";
+	}
+	?>
 	</div>
 
 <?php
-if($status){
-	foreach($rows as  $row){
-	echo'<div class="list">';
-	echo	'<div class="bt"><a href="./index.php/show/article/'.$row['passageid'].'">'.$row['title'].'</a></div>';
-	echo 	'<div class="sj">'.date('Y-m-d',$row['time']).'</div>';
-	echo'<div class="zz">'.$row['name'].'</div></div>';
+	if(!$status){
+		echo '<div class="container">';
+		echo  "<div class='mainBody'>".$msg."</div>"; 
+		echo '</div>';
 	}
-}
+	else{
+		echo '<div class="container">';
+		echo '<div class="title">'.$row['title'].'</div>';
+		echo '<div class="info">';
+		echo'作者: <div class="author">'.$row['name'].	'</div>&nbsp;&nbsp;&nbsp;&nbsp; 发表时间:&nbsp;&nbsp;<div class="launchTime">'.date('Y-m-d',$row['time']).'</div>&nbsp;&nbsp;</div>';
+		echo  "<div class='mainBody'>".htmlspecialchars_decode($row['content'])."</div>"; 
+		echo '</div>';
+	}
 ?>
-	<div class="page"><?php echo $this->pagination->create_links()?></div>
 
 </div>
 </body>

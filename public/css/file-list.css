@@ -1,10 +1,5 @@
 body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}  
  ol{margin:0; padding:0;border:0;}
-#nav_left .wjxz{
-	background: rgb(0,188,212);
-	color:rgb(51,51,51);
-}
-
 #nav_top .xhykzzhsy{
 	color:rgb(0,140,212);
 }
@@ -72,7 +67,7 @@ body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}
 
 }
 #download_page{
-	display: none;
+	display: block;
 	width:200px;
 	height:150px;
 	position: fixed;

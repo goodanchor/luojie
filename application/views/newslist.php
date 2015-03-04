@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>文章列表</title>
+	<title>公告列表</title>
 <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 <base href = "<?php echo base_url();?>"/>
 <script type="text/javascript"> window.URL = "<?php echo base_url();?>"; </script>
@@ -31,7 +31,7 @@
 			break;
 		
 		default:
-			
+			$classCode = "0";
 			break;
 	}
 ?>
@@ -53,9 +53,9 @@
 <div id="body">
 	<div id="nav_left">
 		<a class="nav_left_cell" href="./index.php/show/index/<?php echo $classCode;?>">首页</a>
-		<a class="nav_left_cell cut-off active_left" href="./index.php/show/articlelist/<?php echo $classCode;?>">课程文章</a>
+		<a class="nav_left_cell cut-off" href="./index.php/show/articlelist/<?php echo $classCode;?>">课程文章</a>
 		<a class="nav_left_cell cut-off" href="./index.php/show/files/<?php echo $classCode;?>">文件下载</a>
-		<a class="nav_left_cell" href="./index.php/show/newslist/<?php echo $classCode;?>">课程公告</a>
+		<a class="nav_left_cell active_left" href="./index.php/show/newslist/<?php echo $classCode;?>">课程公告</a>
 	</div>
 	<div id="main">
 		<div class="box">
@@ -64,7 +64,7 @@
 				<div class="info zz">作者</div>
 				<div class="info sj">时间</div>
 			</div>
-			<a class="file" href="./index.php/show/article">
+			<a class="file" href="./index.php/show/news">
 				<div class="info bt black">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
 				<div class="info zz black">aa</div>
 				<div class="info sj blue">2015-02-03</div>

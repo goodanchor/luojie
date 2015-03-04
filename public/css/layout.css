@@ -9,6 +9,7 @@ html,body{
 	height: 100%;
 }
  #background{
+ 	min-width: 1200px;
  	min-height:100%;
  	background: url(../images/bg.jpg) no-repeat center center fixed;
   	-webkit-background-size: cover;
@@ -20,6 +21,7 @@ html,body{
  	position: relative;
  	height: 106px;
  	width:100%;
+ 	min-width:1200px;
  	background: #fff;
  }
  #nav_top{
@@ -61,6 +63,7 @@ html,body{
  #body{
  	position: relative;
  	width:100%;
+ 	min-width: 1200px;
  	height:562px;
  	font-size: 0;
  }
@@ -88,6 +91,10 @@ html,body{
  .cut-off{
  	border-top: 1px solid rgb(38,50,56);
  	border-bottom: 1px solid rgb(38,50,56);
+ }
+ .active_left{
+ 	background: rgb(0,188,212);
+	color:rgb(51,51,51);
  }
  #main{
  	position: relative;

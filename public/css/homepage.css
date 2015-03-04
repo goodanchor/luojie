@@ -1,9 +1,5 @@
 body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}  
  ol{margin:0; padding:0;border:0;}
- #nav_left .sy{
-	background: rgb(0,188,212);
-	color:rgb(51,51,51);
-}
 .announcement{
 	position: relative;
 	height:250px;

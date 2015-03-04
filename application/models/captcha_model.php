@@ -23,7 +23,7 @@ class Captcha_Model extends CI_Model
         imagefill($image, 0, 0, $bgcolor);
 
 			//绘制干扰线
-        for ($i=0; $i<100; $i++) 
+        for ($i=0; $i<100; $i++)
         { 
             $pointcolor = imageColorAllocate($image,mt_rand(0,255),mt_rand(0,255),mt_rand(0,255));
             imagesetpixel($image,mt_rand(1,$w-1),mt_rand(1,$h-1),$pointcolor);
@@ -40,7 +40,7 @@ class Captcha_Model extends CI_Model
         {
             $fontcolor = imageColorAllocate($image,mt_rand(0,120),mt_rand(0,120),mt_rand(0,120));
             $data = 'abcdefghijklmnopqrstuvwxyz3456789';
-            $font = substr($data,mt_rand(0,strlen($data)),1);
+            $font = substr($data,mt_rand(0,strlen($data)-1),1);
 
             $randcode.=$font;
 
@@ -50,6 +50,7 @@ class Captcha_Model extends CI_Model
         }
         $arr = array('captcha'=>$randcode);
         $this->session->set_userdata($arr);
+        ob_clean();
         header('Content-type:image/png');
         imagepng($image);
         imagedestroy($image);
