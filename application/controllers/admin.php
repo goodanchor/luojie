@@ -124,7 +124,7 @@ class Admin extends CI_Controller
             $config['base_url'] = base_url().'index.php/admin/passli';
             $config['total_rows'] = $this->files_model->count_all($session['class']);
             //$config['first_url'] = base_url().'index.php/admin/upload/0';
-            $config['per_page'] = 2;
+            $config['per_page'] = 8;
             $config['num_links'] = 3;
             $config['full_tag_open'] = '<p>';
             $config['full_tag_close'] = '</p>'; 
@@ -154,7 +154,7 @@ class Admin extends CI_Controller
             $config['base_url'] = base_url().'index.php/admin/passli';
             $config['total_rows'] = $this->passage_model->count_all($session['class']);;
             //$config['first_url'] = base_url().'index.php/admin/passli/0';
-            $config['per_page'] = 2;
+            $config['per_page'] = 8;
             $config['num_links'] = 3;
             $config['full_tag_open'] = '<p>';
             $config['full_tag_close'] = '</p>'; 
@@ -181,7 +181,7 @@ class Admin extends CI_Controller
         {  
             $config['base_url'] = base_url().'index.php/admin/notice';
             $config['total_rows'] = $this->notice_model->count_all($session['class']);
-            $config['per_page'] = 2;
+            $config['per_page'] = 8;
             $config['num_links'] = 3;
             $config['full_tag_open'] = '<p>';
             $config['full_tag_close'] = '</p>'; 

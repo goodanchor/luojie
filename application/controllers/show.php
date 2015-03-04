@@ -112,10 +112,11 @@ class Show extends CI_Controller {
                 break;
          }
          $config['total_rows'] = $this->notice_model->count_all($class);;
-         $config['per_page'] = 3;
+         $config['per_page'] = 10;
          $config['num_links'] = 3;
          $config['full_tag_open'] = '<p class="pageination">';
          $config['full_tag_close'] = '</p>'; 
+         $config['anchor_class'] = "font-size=16 ";
          $this->pagination->initialize($config);
 
          $limit = (int)$limit;
@@ -199,7 +200,7 @@ class Show extends CI_Controller {
 
         $config['total_rows'] = $this->passage_model->count_all($class);;
         //$config['first_url'] = base_url().'index.php/admin/passli/0';
-        $config['per_page'] = 2;
+        $config['per_page'] = 10;
         $config['num_links'] = 3;
         $config['full_tag_open'] = '<p class="pageination">';
         $config['full_tag_close'] = '</p>';
@@ -250,7 +251,7 @@ class Show extends CI_Controller {
         }
         $config['total_rows'] = $this->files_model->count_all($class);;
         //$config['first_url'] = base_url().'index.php/admin/passli/0';
-        $config['per_page'] = 2;
+        $config['per_page'] = 10;
         $config['num_links'] = 3;
         $config['full_tag_open'] = '<p class="pageination">';
         $config['full_tag_close'] = '</p>';
