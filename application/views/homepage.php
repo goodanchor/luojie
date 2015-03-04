@@ -64,7 +64,7 @@
 				<?php
 				if($status){
 					for($i = 0; $i < 5 && $i < count($rows); $i++){
-						echo '<a class="cell" href="./index.php/show/news/'.$rows[$i]['id'].'">'.$rows[$i]['title'].'<div class="time">'.date('Y-m-d',$row['time']).'</div></a>';
+						echo '<a class="cell" href="./index.php/show/news/'.$classCode.'/'.$rows[$i]['id'].'">'.$rows[$i]['title'].'<div class="time">'.date('Y-m-d',$row['time']).'</div></a>';
 					}
 				}
 				?>
