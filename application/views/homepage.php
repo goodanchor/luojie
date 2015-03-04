@@ -64,7 +64,7 @@
 				<?php
 				if($status){
 					for($i = 0; $i < 5 && $i < count($rows); $i++){
-						echo '<a class="cell" href="./index.php/show/news/'.$classCode.'/'.$rows[$i]['id'].'">'.$rows[$i]['title'].'<div class="time">'.date('Y-m-d',$row['time']).'</div></a>';
+						echo '<a class="cell" href="./index.php/show/news/'.$classCode.'/'.$rows[$i]['noticeid'].'">'.$rows[$i]['title'].'<div class="time">'.date('Y-m-d',$rows[$i]['time']).'</div></a>';
 					}
 				}
 				?>
@@ -73,13 +73,14 @@
 				<?php
 				if($status){
 					for($i = 5; $i < 10 && $i < count($rows); $i++){
-						echo '<div class="cell">'.$rows[$i]['title'].'<div class="time">'.date('Y-m-d',$row['time']).'</div></div>';
+						echo '<div class="cell">'.$rows[$i]['title'].'<div class="time">'.date('Y-m-d',$rows[$i]['time']).'</div></div>';
+						if($i == 9){
+							echo '<div class="cell" ><a class="more" href="./index.php/show/newslist/'.$classCode.'">更多公告</a></div>';
+						}
 					}
 				}
 				?>
-				<div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div><div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div><div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div>
-				<div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div><div class="cell">睡懒觉睡懒觉睡懒觉睡懒觉<div class="time">2015-02-28</div></div>
-				<div class="cell" ><a class="more" href="./index.php/show/newslist/<?php echo $classCode;?>">更多公告</a></div>
+				
 			</div>
 		</div>
 		<div class="introduction">
