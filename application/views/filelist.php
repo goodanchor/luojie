@@ -95,7 +95,7 @@
 </body>
 <script type="text/javascript">
 	var cur_fileId = 0;
-	$(".download_btn").click(function(){
+	$(".download").click(function(){
 		cur_fileId = $(this).attr("name");
 		$("#download_page img").attr("src","./index.php/show/captcha?rand=" + Math.random());
 		$('#fileid').val(cur_fileId);
@@ -109,24 +109,13 @@
 		 $("#captcha").val("");
 		$("#download_page").hide();
 	});
-	/*$("#submit").click(function(){
-		$.ajax({
-			type:"post",
-			url:URL + "index.php/files/download",
-			data:{
-				captcha : $("#captcha").val().trim(),
-				fileid : cur_fileId,
-			},
-			dataType:"json",
-			success:function(res){
-				if(res.status){
-					
-				}else{
-					alert(res.msg);
-		 			$("#captcha").val("");
-				}
-			}
-		});
-	});*/
+	$("#submit").click(function(){
+		setTimeout("close_panel()",100);
+	});
+	function close_panel(){
+		cur_fileId = 0;
+		$("#captcha").val("");
+		$("#download_page").hide();
+	}
 </script>
 </html>

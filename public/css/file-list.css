@@ -67,7 +67,7 @@ body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}
 
 }
 #download_page{
-	display: block;
+	display: none;
 	width:200px;
 	height:150px;
 	position: fixed;

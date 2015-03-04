@@ -64,25 +64,20 @@
 				<div class="info zz">作者</div>
 				<div class="info sj">时间</div>
 			</div>
-			<a class="file" href="./index.php/show/news">
-				<div class="info bt black">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
-				<div class="info zz black">aa</div>
-				<div class="info sj blue">2015-02-03</div>
-			</a>
-		</div>
-	</div>
-
-<?php
-if($status){
-	foreach($rows as  $row){
-	echo'<div class="list">';
-	echo	'<div class="bt"><a href="./index.php/show/article/'.$row['passageid'].'">'.$row['title'].'</a></div>';
-	echo 	'<div class="sj">'.date('Y-m-d',$row['time']).'</div>';
-	echo'<div class="zz">'.$row['name'].'</div></div>';
+			<?php
+	if($status){
+		foreach($rows as  $row){
+			echo '<a class="file" href="./index.php/show/news/'.$classCode.'/'.$row['noticeid'].'">';
+			echo	'<div class="info bt black">'.$row['title'].'</div>';
+			echo	'<div class="info zz black">'.$row['name'].'</div>';
+			echo	'<div class="info sj blue">'.date('Y-m-d',$row['time']).'</div>';
+			echo '</a>';
+		}
 	}
-}
-?>
-	<div class="page"><?php echo $this->pagination->create_links()?></div>
+	?>
+		</div>
+		<div class="page"><?php echo $this->pagination->create_links()?></div>
+	</div>
 
 </div>
 </body>

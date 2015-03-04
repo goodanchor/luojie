@@ -122,7 +122,7 @@ class Show extends CI_Controller {
          if($limit<0 OR $limit>=$config['total_rows'])
             $limit = 0;
 
-        if($rows = $this->passage_model->fetch_all($limit,$config['per_page'],$class)){
+        if($rows = $this->notice_model->fetch_all($limit,$config['per_page'],$class)){
             $data['status'] = 1;
             $data['rows'] = $rows;
         }
@@ -220,6 +220,7 @@ class Show extends CI_Controller {
             $data['rows'] = array();
         }
         //print_r($data);
+        $data['class'] = $class;
         $this->load->view('articlelist',$data);
     }
 
