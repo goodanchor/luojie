@@ -32,6 +32,56 @@ class Show extends CI_Controller {
                 
     }
 
+
+    function news($class=1,$pid=0)
+    {
+        $pid = (int)$pid;
+        if($row = $this->notice_model->fetch_one($pid))
+        {
+            $data['status'] = 1;
+            $data['msg'] = 'success';   
+            $data['row'] = $row;
+        }
+        else{
+            $data['status'] = 0;
+            $data['msg'] = '您查找的文章不存在或已删除';
+            $data['row'] = array();
+        }
+        $data['class'] = $class;
+        $this->load->view('news',$data);
+        
+    }
+
+    function newslist($class=1,$limit=0)
+    {       
+        $this->load->library('pagination');
+        //pagination
+         $config['base_url'] = base_url().'index.php/show/newslist';
+         $config['total_rows'] = $this->notice_model->count_all();;
+            //$config['first_url'] = base_url().'index.php/admin/passli/0';
+         $config['per_page'] = 2;
+         $config['num_links'] = 3;
+         $config['full_tag_open'] = '<p class="pageination">';
+         $config['full_tag_close'] = '</p>'; 
+         $this->pagination->initialize($config);
+
+         $limit = (int)$limit;
+         if($limit<0 OR $limit>=$config['total_rows'])
+            $limit = 0;
+
+        if($rows = $this->passage_model->fetch_all($limit,$config['per_page'])){
+            $data['status'] = 1;
+            $data['rows'] = $rows;
+        }
+        else {
+            $data['status'] = 0;
+            $data['rows'] = array();
+        }
+        $data['class'] = $class;
+        $this->load->view('newslist',$data);
+    }
+
+
     function article($pid=0)
     {
         $pid = (int)$pid;
