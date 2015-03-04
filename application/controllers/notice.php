@@ -31,7 +31,7 @@ class Notice extends CI_Controller
     {
         $session = $this->session->all_userdata();
         $post = $this->input->post();
-        if(!isset($session['userid']) {
+        if(!isset($session['userid'])) {
             $res['msg'] = '您无权进行该操作';
             $res['status'] = 0 ;
         }
