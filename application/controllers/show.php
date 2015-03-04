@@ -32,7 +32,7 @@ class Show extends CI_Controller {
     }
 
 
-    function news($class=1,$pid=0)
+    function news($class='xhykzzhsy',$pid=0)
     {
         $pid = (int)$pid;
         if($row = $this->notice_model->fetch_one($pid))
@@ -46,19 +46,54 @@ class Show extends CI_Controller {
             $data['msg'] = '您查找的文章不存在或已删除';
             $data['row'] = array();
         }
+         switch($class)
+         {
+            case 'xhykzzhsy':
+                $class = 1;
+                break;
+            case 'szdlyljsj':
+                $class = 2;
+                break;
+            case 'wjylyjkjs':
+                $class = 3;
+                break;
+            case 'qrsxt':
+                $class = 4;
+                break;
+            default:
+                $class = 1;
+                break;
+         }
         $data['class'] = $class;
         $this->load->view('news',$data);
         
     }
 
-    function newslist($class=1,$limit=0)
+    function newslist($class='xhykzzhsy',$limit=0)
     {       
         $this->load->library('pagination');
         //pagination
-         $config['base_url'] = base_url().'index.php/show/newslist';
-         $config['total_rows'] = $this->notice_model->count_all();;
-            //$config['first_url'] = base_url().'index.php/admin/passli/0';
-         $config['per_page'] = 2;
+         $config['base_url'] = base_url().'index.php/show/newslist/'.$class;
+         switch($class)
+         {
+            case 'xhykzzhsy':
+                $class = 1;
+                break;
+            case 'szdlyljsj':
+                $class = 2;
+                break;
+            case 'wjylyjkjs':
+                $class = 3;
+                break;
+            case 'qrsxt':
+                $class = 4;
+                break;
+            default:
+                $class = 1;
+                break;
+         }
+         $config['total_rows'] = $this->notice_model->count_all($class);;
+         $config['per_page'] = 3;
          $config['num_links'] = 3;
          $config['full_tag_open'] = '<p class="pageination">';
          $config['full_tag_close'] = '</p>'; 
@@ -68,7 +103,7 @@ class Show extends CI_Controller {
          if($limit<0 OR $limit>=$config['total_rows'])
             $limit = 0;
 
-        if($rows = $this->passage_model->fetch_all($limit,$config['per_page'])){
+        if($rows = $this->passage_model->fetch_all($limit,$config['per_page'],$class)){
             $data['status'] = 1;
             $data['rows'] = $rows;
         }
@@ -81,7 +116,7 @@ class Show extends CI_Controller {
     }
 
 
-    function article($pid=0)
+    function article($class='xhykzzhsy',$pid=0)
     {
         $pid = (int)$pid;
         if($row = $this->passage_model->fetch_one($pid))
@@ -95,13 +130,8 @@ class Show extends CI_Controller {
             $data['msg'] = '您查找的文章不存在或已删除';
             $data['row'] = array();
         }
-        $this->load->view('article',$data);
-    }
-
-    function articlelist($class=1;$limit=0)
-    {
-
-         switch($class){
+        switch($class)
+         {
             case 'xhykzzhsy':
                 $class = 1;
                 break;
@@ -118,14 +148,41 @@ class Show extends CI_Controller {
                 $class = 1;
                 break;
         }
+        $data['class'] = $class;
+        $this->load->view('article',$data);
+    }
+
+    function articlelist($class='xhykzzhsy',$limit=0)
+    {
+
+       
         $this->load->library('pagination');
         //pagination
-        $config['base_url'] = base_url().'index.php/show/articlelist';
-        $config['total_rows'] = $this->passage_model->count_all();;
+        $config['base_url'] = base_url().'index.php/show/articlelist/'.$class;
+          switch($class)
+         {
+            case 'xhykzzhsy':
+                $class = 1;
+                break;
+            case 'szdlyljsj':
+                $class = 2;
+                break;
+            case 'wjylyjkjs':
+                $class = 3;
+                break;
+            case 'qrsxt':
+                $class = 4;
+                break;
+            default:
+                $class = 1;
+                break;
+        }
+
+        $config['total_rows'] = $this->passage_model->count_all($class);;
         //$config['first_url'] = base_url().'index.php/admin/passli/0';
         $config['per_page'] = 2;
         $config['num_links'] = 3;
-        $config['full_tag_open'] = '<p>';
+        $config['full_tag_open'] = '<p class="pageination">';
         $config['full_tag_close'] = '</p>';
         $this->pagination->initialize($config);
 
@@ -133,21 +190,28 @@ class Show extends CI_Controller {
         if($limit<0 OR $limit>=$config['total_rows'])
             $limit = 0;
 
-        if($rows = $this->passage_model->fetch_all($limit,$config['per_page'])){
+        if($rows = $this->passage_model->fetch_all($limit,$config['per_page'],$class))
+        {
             $data['status'] = 1;
             $data['rows'] = $rows;
         }
-        else {
+        else 
+        {
             $data['status'] = 0;
             $data['rows'] = array();
         }
+        //print_r($data);
         $this->load->view('articlelist',$data);
     }
 
 
 
-    function files($class=1,$limit=0)
-    {
+    function files($class='xhykzzhsy',$limit=0)
+    {   
+
+         $this->load->library('pagination');
+        //pagination
+         $config['base_url'] = base_url().'index.php/show/files/'.$class;
         switch($class){
             case 'xhykzzhsy':
                 $class = 1;
@@ -165,15 +229,28 @@ class Show extends CI_Controller {
                 $class = 1;
                 break;
         }
-        if($rows = $this->files_model->fetch_all($limit,3,$class)){
+        $config['total_rows'] = $this->files_model->count_all($class);;
+        //$config['first_url'] = base_url().'index.php/admin/passli/0';
+        $config['per_page'] = 2;
+        $config['num_links'] = 3;
+        $config['full_tag_open'] = '<p class="pageination">';
+        $config['full_tag_close'] = '</p>';
+        $this->pagination->initialize($config);
+
+        $limit = (int)$limit;
+        if($limit<0 OR $limit>=$config['total_rows'])
+            $limit = 0;
+
+        if($rows = $this->files_model->fetch_all($limit,$config['per_page'],$class)){
             $data['status'] = 1;
             $data['rows'] = $rows;
         }
         else {
             $data['status'] = 0;
         }
-        print_r($data);
-        //$this->load->view('filelist',$data);
+        $data['class'] = $class;
+        //print_r($data);
+        $this->load->view('filelist',$data);
     }
 
 
