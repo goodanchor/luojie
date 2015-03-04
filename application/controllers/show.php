@@ -11,8 +11,27 @@ class Show extends CI_Controller {
         $this->load->helper(array('url','form'));
     }
 
-    function index()
-    {
+    function index($class='xhykzzhsy')
+    {   
+         switch($class)
+         {
+            case 'xhykzzhsy':
+                $class = 1;
+                break;
+            case 'szdlyljsj':
+                $class = 2;
+                break;
+            case 'wjylyjkjs':
+                $class = 3;
+                break;
+            case 'qrsxt':
+                $class = 4;
+                break;
+            default:
+                $class = 1;
+                break;
+         }
+        $data['class'] = $class;
         $session = $this->session->all_userdata();
         if(isset($session['old']))
             $data['count'] = $this->count_model->showcount();
