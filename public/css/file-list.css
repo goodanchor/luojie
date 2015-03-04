@@ -81,3 +81,20 @@ body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,li{margin:0;}
 	float:left;
 	margin:5px 20px;
 }
+.page{
+	margin: 20px auto;
+	width:200px;
+	height:30px;
+}
+.page p{
+	height: 30px;
+	line-height: 30px;
+}
+.page p *{
+	display: inline-block;
+	width: 30px;
+	font-size: 14px;
+	text-align: center;
+	text-decoration: none;
+	color:#000;
+}

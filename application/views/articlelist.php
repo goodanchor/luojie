@@ -75,9 +75,9 @@
 		}
 	}
 	?>
-		</div>
 
 		<div class="page"><?php echo $this->pagination->create_links()?></div>
+		</div>
 	</div>
 </div>
 </body>
