@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 class Files_Model extends CI_Model
 {
